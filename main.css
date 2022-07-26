@@ -7,3 +7,9 @@
     font-family: 'Thasadith', sans-serif;
 
 }
+button {
+    border-style: none ;
+    color: white;
+    background-color: rgb(102, 100, 100);
+    border-radius: 3px;
+}
