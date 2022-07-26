@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <script type="text/javascript" src="main.js"></script>
     <title>Yin Yang App</title>
-    </head>
-    <body>
-        <div class="wrap-layer"></div>
+</head>
+
+<body>
+    <div class="wrap-layer"></div>
     <div class="text-layer">
         <h1 class="welcome">Welcome to Yin Yang</h1>
         <div>
             <p>Get started by connecting with your partner!</p>
             <button>Connect →</button>
         </div>
-        <svg class="background-layer" viewBox='-14 -7 28 14' 
-xmlns='http://www.w3.org/2000/svg' >
-<circle r='6'/>
-<path d='M0 6
+        <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
+            <circle r='6' />
+            <path d='M0 6
             A6 6 0 0 1 0-6
             A3 3 0 0 1 0 0
             A3 3 0 0 0 0 6
             M0 2
             A1 1 0 0 1 0 4
-            A1 1 0 0 1 0 2' 
-       fill='#fff'/>
-<circle r='1' cy='-3'/>
-</svg>
+            A1 1 0 0 1 0 2' fill='#fff' />
+            <circle r='1' cy='-3' />
+        </svg>
     </div>
-        <script>
-            var textWrapper = document.querySelector('.welcome');
-            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-            anime.timeline({loop: true})
-              .add({
+    <script>
+        var textWrapper = document.querySelector('.welcome');
+        var path = anime.path('.background-layer');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        anime.timeline({ loop: true })
+            .add({
                 targets: '.welcome .letter',
-                opacity: [0,1],
+                opacity: [0, 1],
                 easing: "easeInOutQuad",
                 duration: 2250,
-                delay: (el, i) => 150 * (i+1)
-              }).add({
-                targets: '.welcome',
-                opacity: 0,
-                duration: 1000,
-                easing: "easeOutExpo",
-                delay: 1000
-              });
-              </script>
-            </div>
-    </body>
+                delay: (el, i) => 150 * (i + 1)
+            }).add({
+                targets: '.background-layer',
+                rotate: 360,
+                duration: 10000,
+                loop: true
+            })
+    </script>
+    </div>
+</body>
+
 </html>
 <!--
     HTML
