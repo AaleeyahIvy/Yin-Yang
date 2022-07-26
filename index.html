@@ -10,11 +10,27 @@
     <title>Yin Yang App</title>
     </head>
     <body>
+        <div class="wrap-layer"></div>
+    <div class="text-layer">
         <h1 class="welcome">Welcome to Yin Yang</h1>
-        <p>Get started by connecting with your partner!</p>
         <div>
+            <p>Get started by connecting with your partner!</p>
             <button>Connect →</button>
         </div>
+        <svg class="background-layer" viewBox='-14 -7 28 14' 
+xmlns='http://www.w3.org/2000/svg' >
+<circle r='6'/>
+<path d='M0 6
+            A6 6 0 0 1 0-6
+            A3 3 0 0 1 0 0
+            A3 3 0 0 0 0 6
+            M0 2
+            A1 1 0 0 1 0 4
+            A1 1 0 0 1 0 2' 
+       fill='#fff'/>
+<circle r='1' cy='-3'/>
+</svg>
+    </div>
         <script>
             var textWrapper = document.querySelector('.welcome');
             textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -33,5 +49,57 @@
                 delay: 1000
               });
               </script>
+            </div>
     </body>
 </html>
+<!--
+    HTML
+    <div class='☯'></div>
+
+    CSS
+$d: 80vmin;
+
+body {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	overflow: hidden;
+	height: 100vh;
+	background: lightslategray;
+}
+
+.☯ {
+	display: flex;
+	align-items: center;
+	width: $d; height: $d;
+	border-radius: 50%;
+	background: linear-gradient(black 50%, white 0);
+	
+	&:before, &:after {
+		flex: 1;
+		height: 50%;
+		border-radius: 50%;
+		background: black;
+		content: ''
+	}
+	
+	&:after { background: white }
+}
+
+
+
+<svg viewBox='-14 -7 28 14' 
+xmlns='http://www.w3.org/2000/svg' 
+style='background:#789'>
+<circle r='6'/>
+<path d='M0 6
+            A6 6 0 0 1 0-6
+            A3 3 0 0 1 0 0
+            A3 3 0 0 0 0 6
+            M0 2
+            A1 1 0 0 1 0 4
+            A1 1 0 0 1 0 2' 
+       fill='#fff'/>
+<circle r='1' cy='-3'/>
+</svg>
+-->

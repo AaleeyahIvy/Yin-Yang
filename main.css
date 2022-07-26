@@ -1,4 +1,5 @@
 .welcome {
+    position: relative;
     font-weight: 900;
     font-size: 3.5em;
   }
@@ -13,3 +14,22 @@ button {
     background-color: rgb(102, 100, 100);
     border-radius: 3px;
 }
+.wrap-layer{
+    position: relative;
+ }
+ .text-layer{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.2;
+    pointer-events: none;
+ }
+ .background-layer {
+    width: 50%;
+    height: 50%;
+ }
