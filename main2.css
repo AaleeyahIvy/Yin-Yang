@@ -34,3 +34,9 @@ body{
     height: 450px;
     width: 450px;
 }
+tr {
+    padding: 10px;
+}
+input[value]{
+    color: rgba(0, 0, 0, 0.452);
+}
