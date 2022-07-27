@@ -64,8 +64,8 @@ padding-right: 2px;
     line-height: 1.2;
  }
  .background-layer {
-    width: 25%;
-    height: 25%;
+   height: 250px;
+   width:250
  }
  footer{
   position: fixed;
