@@ -22,14 +22,16 @@
   margin: 5px;
 }
 
-.connectbtn span {
+.connectbtn a {
+  color: white;
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
+  text-decoration: none;
 }
 
-.connectbtn span:after {
+.connectbtn a:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -41,11 +43,11 @@
 padding: 20px;
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.connectbtn:hover span {
+.connectbtn:hover a {
 padding-right: 2px;
 }
 
-.connectbtn:hover span:after {
+.connectbtn:hover a:after {
   opacity: 1;
   right: 2;
 }
@@ -75,4 +77,3 @@ padding-right: 2px;
   color: black;
   text-align: center;
 }
- 
