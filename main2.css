@@ -46,3 +46,9 @@ input[value]{
 form{
     margin: 15px;
 }
+.animate-bottom{
+    height: 450px;
+    width: 450px;
+    background-color: rgb(148, 193, 231);
+    border-radius:55px;
+}
