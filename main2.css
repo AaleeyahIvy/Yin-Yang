@@ -38,5 +38,11 @@ tr {
     padding: 10px;
 }
 input[value]{
+    padding: 15px;
+    margin: 15px;
     color: rgba(0, 0, 0, 0.452);
+    border-radius: 55px;
+}
+form{
+    margin: 15px;
 }
