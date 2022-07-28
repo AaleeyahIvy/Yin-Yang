@@ -38,11 +38,8 @@ body{
 tr {
     padding: 10px;
 }
-input[value]{
-    padding: 15px;
-    margin: 15px;
+#placeholder{
     color: rgba(0, 0, 0, 0.452);
-    border-radius: 55px;
 }
 form{
     margin: 15px;
@@ -55,6 +52,12 @@ form{
     height: 450px;
     width: 450px;
     border-radius:55px;
+}
+input{
+    padding: 15px;
+    margin: 15px;
+    color: rgba(0, 0, 0, 0.452);
+    border-radius: 55px;
 }
 .submit{
     width: 45%;
