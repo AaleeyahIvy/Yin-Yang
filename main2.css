@@ -48,6 +48,7 @@ form{
     margin: 15px;
 }
 .animate-bottom{
+  background-color: #ffffff;
     margin: 15px;
     border: 2px black solid;
     border-radius: 55px;
@@ -58,14 +59,16 @@ form{
 input{
     padding: 15px;
     margin: 15px;
-    color: rgba(0, 0, 0, 0.452);
+    color: rgba(138, 138, 138, 0.452);
     border-radius: 55px;
+    border-color: #c4c4c477;
 }
 .submit{
+  background-color: #ffffff;
     width: 45%;
 }
 .submit:hover{
-    background-color: #57c6e1;
+    background-color: #e6e6e6;
 }
 /* width */
 ::-webkit-scrollbar {
