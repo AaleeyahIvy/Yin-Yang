@@ -18,6 +18,9 @@
 .col-12 {width: 100%;}
 
 body{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
     text-align: center;
     font-family: 'Thasadith', sans-serif;
     background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
@@ -82,4 +85,9 @@ input{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to right, #cf7a7a 0%, #616966 19%, #2d7688 42%, #694e9b 79%, #356a77 100%);
+  }
+  #myDiv {
+    position: relative;
+    display: none;
+    text-align: center;
   }
