@@ -20,6 +20,7 @@
 body{
     text-align: center;
     font-family: 'Thasadith', sans-serif;
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
 
 }
  footer{
@@ -47,8 +48,17 @@ form{
     margin: 15px;
 }
 .animate-bottom{
+    margin: 15px;
+    align-content: center;
+    border: 2px black solid;
+    border-radius: 55px;
     height: 450px;
     width: 450px;
-    background-color: rgb(148, 193, 231);
     border-radius:55px;
+}
+.submit{
+    width: 45%;
+}
+.submit:hover{
+    background-color: #57c6e1;
 }
