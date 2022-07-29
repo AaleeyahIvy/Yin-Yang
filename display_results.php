@@ -13,7 +13,7 @@
 </head>
 <body>
     <main>
-        <h1>Account Information</h1>
+        <h1>Everything looks good!</h1>
         <label>Full Name:</label>
         <span><?php echo htmlspecialchars($fullname);?></span><br>
 
@@ -25,3 +25,4 @@
     </main>
 </body>
 </html>
+
