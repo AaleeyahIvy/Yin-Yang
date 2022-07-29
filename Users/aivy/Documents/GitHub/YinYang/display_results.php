@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Account Information</title>
+    <title>Success</title>
     <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 <body>
