@@ -119,6 +119,9 @@ input{
     display: none;
     text-align: center;
   }
+  .nav {
+    display: inline;
+  }
   .nav a {
     position: relative;
     top: 0px;
@@ -127,7 +130,7 @@ input{
     border-width: 25px;
     padding: 25px;
     float: right;
-    font-weight: 800;
+    font-weight: bolder;
   }
   nav a:hover{
     background-color: rgba(0, 0, 0, 0.219);
