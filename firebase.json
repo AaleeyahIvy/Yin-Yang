@@ -5,6 +5,14 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+    "headers": [ {
+      "source": "*.php",
+      "headers": [ {
+        "key": "Content-Type",
+        "value": "text/html"
+      } ]
+      } ]
   }
 }
+

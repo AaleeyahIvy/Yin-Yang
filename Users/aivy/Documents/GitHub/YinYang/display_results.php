@@ -1,10 +1,3 @@
-<?php
-    // get the data from the form
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $name = filter_input(INPUT_POST, 'fullname');
-    $phone = filter_input(INPUT_POST, 'phone');
- 
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +5,13 @@
     <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
 <body>
+<?php
+    // get the data from the form
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $name = filter_input(INPUT_POST, 'fullname');
+    $phone = filter_input(INPUT_POST, 'phone');
+ 
+?>
     <main>
         <h1>Everything looks good!</h1>
         <label>Full Name:</label>
