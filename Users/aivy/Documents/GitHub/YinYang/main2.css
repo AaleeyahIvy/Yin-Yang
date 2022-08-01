@@ -1,3 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .animate-bottom {width: 500px;}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .animate-bottom {width: 500px;}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .animate-bottom {width: 700px;}
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .animate-bottom {width: 900px;}
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .animate-bottom {width: 1050px;}
+}
 
 [class*="col-"] {
     float: left;
@@ -24,7 +51,7 @@ body{
     text-align: center;
     font-family: 'Thasadith', sans-serif;
     background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
-
+  
 }
  footer{
   position: fixed;
@@ -52,13 +79,11 @@ form{
     margin: 15px;
     border: 2px black solid;
     border-radius: 55px;
-    height: 450px;
-    width: 450px;
     border-radius:55px;
 }
 input{
-    padding: 15px;
-    margin: 15px;
+    padding: 25px;
+    margin: 25px;
     color: rgba(138, 138, 138, 0.452);
     border-radius: 55px;
     border-color: #c4c4c477;
