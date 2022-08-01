@@ -119,3 +119,20 @@ padding-right: 2px;
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to right, #cf7a7a 0%, #616966 19%, #2d7688 42%, #694e9b 79%, #356a77 100%);
 }
+.nav{
+  float: right;
+}
+.nav a {
+  position: relative;
+  top: 0px;
+  transition: 0.3s;
+  text-decoration: none;
+  border-width: 25px;
+  padding: 25px;
+  float: right;
+  font-weight: 800;
+}
+nav a:hover{
+  background-color: rgba(0, 0, 0, 0.219);
+  top: -5px;
+}
