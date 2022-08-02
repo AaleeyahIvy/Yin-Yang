@@ -136,3 +136,11 @@ input{
     background-color: rgba(0, 0, 0, 0.219);
     top: -5px;
   }
+  button {
+    color: white;
+    background-color: black;
+  }
+  button a:hover{
+    color: white;
+    background-color: rgb(48, 48, 48);
+  }

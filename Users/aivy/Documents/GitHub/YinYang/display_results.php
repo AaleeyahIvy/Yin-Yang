@@ -2,39 +2,30 @@
 <html>
 <head>
     <title>Success</title>
-    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" href="main.css"/>
 </head>
 <body>
 <?php
     // get the data from the form
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $name = filter_input(INPUT_POST, 'fullname');
-    $phone = filter_input(INPUT_POST, 'phone');
-
-    $conn = mysqli_connect("localhost", "root", "");
+    $fullname = $_REQUEST['fullname'];
+    $email = $_REQUEST['email'];
+    $phone = $_REQUEST['phone'];
+    
+    $dbhost = 'localhost';
+    $dbuser = 'root';
+    $dbpass = "iloveyou16!";
+    $dbtable = "users";
+    $conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
     if($conn === false){
         die("ERROR: Could not connect. "
             . mysqli_connect_error());
     }
-
-    $name = $_REQUEST['fullname'];
-    $email = $_REQUEST['email'];
-    $phone = $_REQUEST['phone'];
-
-    $sql = "INSERT INTO Users VALUES ('$name', '$email', '$phone')";
-
-    if(mysqli_query($conn, $sql)){
-        echo nl2br("\n$name \n$phone \n $email");
-    } else{
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
-    }
-     
+    $sql = "INSERT INTO users VALUES ('$fullname', '$email', '$phone')";
     // Close connection
     mysqli_close($conn);
-    ?>
+    echo '<button class="connectbtn"><a href="app.html">Go to App</a></button>'
 
-?>
+    ?>
     <main>
         <h1>Everything looks good!</h1>
         <label>Full Name:</label>
@@ -45,8 +36,6 @@
 
         <label>Phone Number:</label>
         <span><?php echo htmlspecialchars($phone);?></span><br> 
-
-        <button><a href="app.html">Go to App</a></button>
     </main>
 </body>
 </html>
