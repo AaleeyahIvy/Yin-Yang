@@ -15,8 +15,6 @@ var firebaseConfig = {
   measurementId: "G-FMBHFQDCKC",
   databaseURL: "https://yinyang-33041-default-rtdb.firebaseio.com/"
   };
-  const database = getDatabase(app);
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+
   // Initialize Firebase
-  firebaseui.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);

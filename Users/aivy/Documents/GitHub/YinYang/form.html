@@ -29,10 +29,6 @@
         </svg>
     </div>
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
-    <div class="quickstart-user-details-container">
-      Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-      <div>Firebase auth <code>currentUser</code> object value:</div>
-      <pre><code id="quickstart-account-details">null</code></pre>
      <script> var myVar;
         function myFunction() {
           myVar = setTimeout(showPage, 5000);
@@ -53,9 +49,9 @@
     &nbsp;&nbsp;&nbsp;
     <button id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
     &nbsp;&nbsp;&nbsp;
-    <button id="verify-email" name="verify-email">Send Email Verification</button>
+    <button id="verify-email" name="verify-email"><a>Send Email Verification</a></button>
     &nbsp;&nbsp;&nbsp;
-    <button id="password-reset" name="verify-email">Send Password Reset Email</button>
+    <button id="password-reset" name="verify-email"><a>Send Password Reset Email</a></button>
   <script src="/__/firebase/init.js"></script>
     <script type="module">
     import { getAuth, onAuthStateChanged } from "/firebase/auth";
@@ -166,9 +162,6 @@
           // User is signed in.
           var displayName = user.displayName;
           var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
@@ -196,6 +189,11 @@
       initApp();
     }; 
     </script>
+    <div class="quickstart-user-details-container">
+      Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+      <div>Firebase auth <code>currentUser</code> object value:</div>
+      <pre><code id="quickstart-account-details">null</code></pre>
+    </div>
     <footer>
         Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
     </footer>

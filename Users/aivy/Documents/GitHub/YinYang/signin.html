@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="main.js"></script>
+    <script type="module" src="/rtdb_write_new_user.js"></script>
     <title>Yin Yang App</title>
 </head>
     <body onload="myFunction()" style="margin:0;">
@@ -39,9 +39,13 @@
           <input type="psw" id="password" name="password" placeholder="Enter Password" required><br>
           <br>
           <label for="submit">Get Started!!!!</label>
-          <input class="submit" name="submit" type="submit" value="Submit">
+          <input onclick="writeUserData" class="submit" name="submit" type="submit" value="Submit">
         </form>
     </div>
+    <div class="quickstart-user-details-container">
+        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+        <div>Firebase auth <code>currentUser</code> object value:</div>
+        <pre><code id="quickstart-account-details">null</code></pre>
     <script>
     var myVar;
     function myFunction() {
