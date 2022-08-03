@@ -137,10 +137,16 @@ input{
     top: -5px;
   }
   button {
-    color: white;
-    background-color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-radius: 55px;
   }
   button a:hover{
     color: white;
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+
   }
+button a {
+  text-decoration: none;
+}
