@@ -7,6 +7,16 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebase = require('firebase');
+var firebaseui = require('firebaseui');
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+ui.start('#firebaseui-auth-container', {
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ],
+  // Other config options...
+});
 const firebaseConfig = {
   apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
   authDomain: "yinyang-33041.firebaseapp.com",
