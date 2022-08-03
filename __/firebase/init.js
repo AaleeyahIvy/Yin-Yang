@@ -16,5 +16,7 @@ var firebaseConfig = {
   databaseURL: "https://yinyang-33041-default-rtdb.firebaseio.com/"
   };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  // Initialize All
+  const auth = getAuth(app);
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);

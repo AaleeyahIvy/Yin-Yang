@@ -64,6 +64,22 @@
                 loop: 1
             })
     </script>
+    
+    <script>
+    import { getDatabase, ref, set } from "firebase/database";
+    function writeUserData(userId, fullname, email) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + userId), {
+    username: fullname,
+    email: email
+  });
+}
+document.getElementById('submit').addEventListener('click', writeUserData);
+import { getDatabase } from "firebase/database";
+
+const database = getDatabase();
+
+    </script>
     <footer>
         Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
     </footer>
