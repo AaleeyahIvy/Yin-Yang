@@ -67,7 +67,7 @@
                     duration: 5000,
                     loop: 1
                 })</script>
-    <button id="sign-in" name="signin"><a href="signin.html">Sign In</a></button>
+    <button id="sign-in" name="signin"><a href="form.html">Sign In</a></button>
     &nbsp;&nbsp;&nbsp;
     <button id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
     &nbsp;&nbsp;&nbsp;
@@ -171,13 +171,6 @@
         console.log(error);
       });
     }
-    function writeUserData(userId, fullname, email) {
-     const db = getDatabase();
-    set(ref(db, 'users/' + userId), {
-    username: fullname,
-    email: email
-  });
-}
     /**
      * initApp handles setting up UI event listeners and registering Firebase auth listeners:
      *  - firebase.auth().onAuthStateChanged: This listener is called when the user is signed in or

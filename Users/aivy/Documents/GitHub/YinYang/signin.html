@@ -32,8 +32,8 @@
         <h1>Sign In</h1>
         <h2>Welcome Back:</h2>
         <form style="font-weight: bold;" action="app.html" method="GET">
-          <label for="username">Username:</label>
-          <input type="text" id="fullname" name="fullname" placeholder="Enter Username" required><br>
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" placeholder="Enter Email" required><br>
           <label for="password">Password:</label>
           <input type="psw" id="password" name="password" placeholder="Enter Password" required><br>
           <br>
@@ -203,7 +203,7 @@
     
     <script type="module" src="/__/firebase/init.js">
     import { getDatabase, ref, set } from "firebase/database";
-    function writeUserData(userId, fullname, email) {
+    function writeUserData(password, email) {
     const db = getDatabase();
     set(ref(db, 'users/' + userId), {
     username: fullname,

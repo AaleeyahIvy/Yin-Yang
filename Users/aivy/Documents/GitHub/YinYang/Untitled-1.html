@@ -20,13 +20,23 @@
 
   <script type="text/javascript">
     import { getAuth, onAuthStateChanged } from "firebase/auth";
+    import { getDatabase } from "firebase/database";    
     var firebase = require('firebase');
     var firebaseui = require('firebaseui');
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     const auth = getAuth(firebaseApp);
+    const database = getDatabase(app);
     /**
      * Handles the sign in button press.
      */
+     function writeUserData(userId, fullname, email) {
+  const db = getDatabase();
+  set(ref(db, 'users/' + userId), {
+    username: fullname,
+    email: email
+  });
+  document.getElementById('submit').addEventListener('click', writeUserData);
+}
     function toggleSignIn() {
       if (firebase.auth().currentUser) {
         firebase.auth().signOut();
@@ -151,6 +161,7 @@
       document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
       document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
       document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+      document.getElementById('submit').addEventListener('click', writeUserData);
     }
 
     window.onload = function() {
@@ -187,7 +198,7 @@
           <br/><br/>
           <button  id="sign-in" name="signin"><a href="app.html">Sign In</a></button>
           &nbsp;&nbsp;&nbsp;
-          <button id="sign-up" name="signup"><a href="form.html">Sign Up</a></button>
+          <button id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
           &nbsp;&nbsp;&nbsp;
           <button  id="verify-email" name="verify-email">Send Email Verification</button>
           &nbsp;&nbsp;&nbsp;
