@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="main2.js"></script>
     <title>Yin Yang App</title>
 </head>
     <body onload="myFunction()" style="margin:0;">
@@ -30,24 +29,6 @@
         </svg>
     </div>
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
-      <h1>Sign Up</h1>
-      <h2>Get Started:</h2>
-      <form style="font-weight: bold;" action="display_results.php" method="post">
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" placeholder="Enter First Last Name" required><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Email" required><br>
-        <label for="phonenumber">Phone:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Enter Phone Number" required>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Create Username" required><br>
-        <label for="password">Password:</label>
-        <input type="psw" id="password" name="password" placeholder="Create Password" required><br>
-        <br>
-        <label for="submit">Get Started!!!!</label>
-        <input class="submit" name="submit" type="submit" value="Submit">
-      </form>
-    </div>
     <div class="quickstart-user-details-container">
       Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
       <div>Firebase auth <code>currentUser</code> object value:</div>
@@ -68,10 +49,16 @@
                     duration: 5000,
                     loop: 1
                 })</script>
-    
+    <button id="sign-in" name="signin"><a href="signin.html">Sign In</a></button>
+    &nbsp;&nbsp;&nbsp;
+    <button id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
+    &nbsp;&nbsp;&nbsp;
+    <button id="verify-email" name="verify-email">Send Email Verification</button>
+    &nbsp;&nbsp;&nbsp;
+    <button id="password-reset" name="verify-email">Send Password Reset Email</button>
   <script src="/__/firebase/init.js"></script>
-    <script>
-    import { getAuth, onAuthStateChanged } from "firebase/auth";
+    <script type="module">
+    import { getAuth, onAuthStateChanged } from "/firebase/auth";
     var firebase = require('firebase');
     var firebaseui = require('firebaseui');
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -199,10 +186,10 @@
         document.getElementById('quickstart-sign-in').disabled = false;
       });
 
-      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-      document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
-      document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-      document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+      document.getElementById('sign-in').addEventListener('click', toggleSignIn, false);
+      document.getElementById('sign-up').addEventListener('click', handleSignUp, false);
+      document.getElementById('verify-email').addEventListener('click', sendEmailVerification, false);
+      document.getElementById('password-reset').addEventListener('click', sendPasswordReset, false);
     }
 
     window.onload = function() {
