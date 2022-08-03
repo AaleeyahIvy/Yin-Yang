@@ -6,7 +6,7 @@ import firebaseui from "firebaseui";
 
 // TODO: Replace the following with your app's Firebase project configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
+apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
   authDomain: "yinyang-33041.firebaseapp.com",
   projectId: "yinyang-33041",
   storageBucket: "yinyang-33041.appspot.com",
