@@ -13,7 +13,7 @@
         <nav class="col-12 nav">
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
-            <a href="formb.html">Sign In</a>
+            <a href="signin.html">Sign In</a>
           </nav>
     <div id="loader">
         <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
@@ -45,6 +45,24 @@
         Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
         <div>Firebase auth <code>currentUser</code> object value:</div>
         <pre><code id="quickstart-account-details">null</code></pre>
+        <script>
+            var myVar;
+        function myFunction() {
+          myVar = setTimeout(showPage, 5000);
+        }
+        function showPage() {
+          document.getElementById("loader").style.display = "none";
+          document.getElementById("myDiv").style.display = "inline-block";
+        }
+            var path = anime.path('.background-layer');
+            anime.timeline({ loop: false })
+                .add({
+                    targets: '.background-layer',
+                    rotate: 560,
+                    duration: 5000,
+                    loop: 1
+                });
+        </script>
         <script src="/__/firebase/init.js"></script>
         <script type="module">
         import { getAuth, onAuthStateChanged } from "/firebase/auth";
@@ -183,7 +201,7 @@
         }; 
         </script>
     
-    <script>
+    <script type="module" src="/__/firebase/init.js">
     import { getDatabase, ref, set } from "firebase/database";
     function writeUserData(userId, fullname, email) {
     const db = getDatabase();

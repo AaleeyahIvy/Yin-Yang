@@ -13,7 +13,7 @@
       <nav class="col-12 nav">
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-        <a href="formb.html">Sign In</a>
+        <a href="signin.html">Sign In</a>
       </nav>
     <div id="loader">
         <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
@@ -179,10 +179,10 @@
         document.getElementById('quickstart-sign-in').disabled = false;
       });
 
-      document.getElementById('sign-in').addEventListener('click', toggleSignIn, false);
-      document.getElementById('sign-up').addEventListener('click', handleSignUp, false);
-      document.getElementById('verify-email').addEventListener('click', sendEmailVerification, false);
-      document.getElementById('password-reset').addEventListener('click', sendPasswordReset, false);
+      document.getElementById('sign-in').addEventListener('click', toggleSignIn);
+      document.getElementById('sign-up').addEventListener('click', handleSignUp);
+      document.getElementById('verify-email').addEventListener('click', sendEmailVerification);
+      document.getElementById('password-reset').addEventListener('click', sendPasswordReset);
     }
 
     window.onload = function() {
