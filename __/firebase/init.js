@@ -25,6 +25,7 @@ apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
+        window.location = "app.html";
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -181,6 +182,7 @@ document.getElementById('submit').addEventListener('click', writeUserData);
       document.getElementById('quickstart-verify-email').disabled = true;
       if (user) {
         // User is signed in.
+        window.location = "app.html";
         var email = user.email;
         var password = user.password;
         document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
