@@ -56,6 +56,7 @@
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     const auth = getAuth(firebaseApp);
     const database = getDatabase(app);
+    
 
 
     /**
@@ -70,6 +71,8 @@
   document.getElementById('submit').addEventListener('click', writeUserData);
 }
     function toggleSignIn() {
+      const auth = getAuth();
+      const user = auth.currentUser;
       if (firebase.auth().currentUser) {
         firebase.auth().signOut();
       } else {
@@ -94,10 +97,10 @@
             alert(errorMessage);
           }
           console.log(error);
-          document.getElementById('quickstart-sign-in').disabled = false;
+          document.getElementById('sign-in').disabled = false;
         });
       }
-      document.getElementById('quickstart-sign-in').disabled = true;
+      document.getElementById('sign-in').disabled = true;
     }
 
     /**
@@ -132,6 +135,8 @@
      * Sends an email verification to the user.
      */
     function sendEmailVerification() {
+      const auth = getAuth();
+      const user = auth.currentUser;
       firebase.auth().currentUser.sendEmailVerification().then(function() {
         // Email Verification sent!
         alert('Email Verification Sent!');
@@ -164,13 +169,13 @@
     function initApp() {
       // Listening for auth state changes.
       firebase.auth().onAuthStateChanged(function(user) {
+        const auth = getAuth();
+        const user = auth.currentUser;
         document.getElementById('quickstart-verify-email').disabled = true;
         if (user) {
           // User is signed in.
           var email = user.email;
           var password = user.password;
-          var uid = user.uid;
-          var providerData = user.providerData;
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
           document.getElementById('sign-in').textContent = 'Sign out';
           document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
@@ -203,18 +208,9 @@
 
           <div >
             <div >
-              <p>Enter an email and password below and either sign in to an existing account or sign up</p>
-    
-              <input  style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
-              &nbsp;&nbsp;&nbsp;
-              <input  style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
-              <br/><br/>
-              <button style="color:white;" id="sign-in" name="signin"><a href="app.html">Sign In</a></button>
-              &nbsp;&nbsp;&nbsp;
+              <button style="color:white;" id="sign-in" name="signin"><a href="signin.html">Sign In</a></button>
               <button style="color:white;" id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
-              &nbsp;&nbsp;&nbsp;
               <button style="color:white;"  id="verify-email" name="verify-email">Send Email Verification</button>
-              &nbsp;&nbsp;&nbsp;
               <button style="color: white;" id="password-reset" name="verify-email">Send Password Reset Email</button>
     
               <!-- Container where we'll display the user details -->
