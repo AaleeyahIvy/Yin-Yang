@@ -63,8 +63,6 @@ apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
   var firebase = require('firebase');
   var firebaseui = require('firebaseui');
   var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  const auth = getAuth(firebaseApp);
-  const database = getDatabase(app);
   const credential = EmailAuthProvider.credential(email, password);
 
 
