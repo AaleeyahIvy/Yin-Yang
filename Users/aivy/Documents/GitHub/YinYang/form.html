@@ -167,15 +167,12 @@
         document.getElementById('quickstart-verify-email').disabled = true;
         if (user) {
           // User is signed in.
-          var displayName = user.displayName;
           var email = user.email;
-          var emailVerified = user.emailVerified;
-          var photoURL = user.photoURL;
-          var isAnonymous = user.isAnonymous;
+          var password = user.password;
           var uid = user.uid;
           var providerData = user.providerData;
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
-          document.getElementById('quickstart-sign-in').textContent = 'Sign out';
+          document.getElementById('sign-in').textContent = 'Sign out';
           document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
           if (!emailVerified) {
             document.getElementById('quickstart-verify-email').disabled = false;
@@ -183,14 +180,14 @@
         } else {
           // User is signed out.
           document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
-          document.getElementById('quickstart-sign-in').textContent = 'Sign in';
+          document.getElementById('sign-in').textContent = 'Sign in';
           document.getElementById('quickstart-account-details').textContent = 'null';
         }
         document.getElementById('quickstart-sign-in').disabled = false;
       });
 
-      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-      document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+      document.getElementById('sign-in').addEventListener('click', toggleSignIn, false);
+      document.getElementById('sign-up').addEventListener('click', handleSignUp, false);
       document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
       document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
       document.getElementById('submit').addEventListener('click', writeUserData);
@@ -200,25 +197,11 @@
       initApp();
     };
   </script>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <div> 
+      <main>
+        <div>
 
-      <!-- Header section containing title -->
-      <header class="mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
-        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-          <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--8-col-desktop">
-            <a href="/"><h3>Firebase Authentication</h3></a>
-          </div>
-        </div>
-      </header>
-    
-      <main class="mdl-layout__content mdl-color--grey-100">
-        <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
-    
-          <!-- Container for the demo -->
           <div >
-            <div>
-              <h2>Firebase Email &amp; Password Authentication</h2>
-            </div>
             <div >
               <p>Enter an email and password below and either sign in to an existing account or sign up</p>
     
@@ -226,13 +209,13 @@
               &nbsp;&nbsp;&nbsp;
               <input  style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
               <br/><br/>
-              <button  id="sign-in" name="signin"><a href="app.html">Sign In</a></button>
+              <button style="color:white;" id="sign-in" name="signin"><a href="app.html">Sign In</a></button>
               &nbsp;&nbsp;&nbsp;
-              <button id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
+              <button style="color:white;" id="sign-up" name="signup"><a href="signup.html">Sign Up</a></button>
               &nbsp;&nbsp;&nbsp;
-              <button  id="verify-email" name="verify-email">Send Email Verification</button>
+              <button style="color:white;"  id="verify-email" name="verify-email">Send Email Verification</button>
               &nbsp;&nbsp;&nbsp;
-              <button id="password-reset" name="verify-email">Send Password Reset Email</button>
+              <button style="color: white;" id="password-reset" name="verify-email">Send Password Reset Email</button>
     
               <!-- Container where we'll display the user details -->
               <div class="quickstart-user-details-container">
@@ -242,7 +225,6 @@
               </div>
             </div>
           </div>
-    
         </div>
       </main>
     </div>
