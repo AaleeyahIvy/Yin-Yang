@@ -41,7 +41,24 @@
           <input class="submit" name="submit" type="submit" value="Submit">
         </form>
     </div>
-    </script>
+    <script>
+      var myVar;
+     function myFunction() {
+       myVar = setTimeout(showPage, 5000);
+     }
+     function showPage() {
+       document.getElementById("loader").style.display = "none";
+       document.getElementById("myDiv").style.display = "inline-block";
+     }
+         var path = anime.path('.background-layer');
+         anime.timeline({ loop: false })
+             .add({
+                 targets: '.background-layer',
+                 rotate: 560,
+                 duration: 5000,
+                 loop: 1
+             })
+   </script>
     <footer>
         Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
     </footer>
