@@ -152,6 +152,7 @@ padding-right: 2px;
   float: right;
 }
 .nav a {
+  color: white;
   position: relative;
   top: 0px;
   transition: 0.3s;

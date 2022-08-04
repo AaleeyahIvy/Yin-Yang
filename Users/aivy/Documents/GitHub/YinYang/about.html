@@ -10,51 +10,52 @@
     <script type="text/javascript" src="main.js"></script>
     <title>Yin Yang App</title>
 </head>
-    <body onload="myFunction()" style="margin:0;">
-      <nav class="nav">
-        <a href=index.html>Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="signin.html">Sign In</a>
-      </nav>
-    <div id="loader">
-        <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
-            <circle r='6' />
-            <path d='M0 6
-            A6 6 0 0 1 0-6
-            A3 3 0 0 1 0 0
-            A3 3 0 0 0 0 6
-            M0 2
-            A1 1 0 0 1 0 4
-            A1 1 0 0 1 0 2' fill='#fff' />
-            <circle r='1' cy='-3' />
-        </svg>
-    </div>
-    <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
-      <p>Hey there! You are probably wondering what the heck is this app about and why does it exist?
-         Well that's what this page is for, to tell you about the orgin of the Yin Yang app and why it came about.
-          My fiance and I were originally using an app called Tuned, it was created by Meta. <br>
-          Although eventually they decided they decided to pull the plug and shut down the app in September.
-        This deeply sadden us and we wanted to create an app for long distance couples who struggle like every other couple does when they are apart.</p>
-    </div>
-    <script>
-    var myVar;
-    function myFunction() {
-      myVar = setTimeout(showPage, 5000);
-    }
-    function showPage() {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("myDiv").style.display = "inline-block";
-    }
-        var path = anime.path('.background-layer');
-        anime.timeline({ loop: false })
-            .add({
-                targets: '.background-layer',
-                rotate: 560,
-                duration: 5000,
-                loop: 1
-            })
-    </script>
+<body onload="myFunction()" style="margin:0;">
+  <nav class="col-12 nav">
+      <a href=index.html>Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="signin.html">Sign In</a>
+    </nav>
+<div id="loader">
+  <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
+      <circle r='6' />
+      <path d='M0 6
+      A6 6 0 0 1 0-6
+      A3 3 0 0 1 0 0
+      A3 3 0 0 0 0 6
+      M0 2
+      A1 1 0 0 1 0 4
+      A1 1 0 0 1 0 2' fill='#fff' />
+      <circle r='1' cy='-3' />
+  </svg>
+</div>
+
+<div style="display:none;" id="myDiv" class="col-12 animate-bottom">
+  <p>Hey there! You are probably wondering what the heck is this app about and why does it exist?
+    Well that's what this page is for, to tell you about the orgin of the Yin Yang app and why it came about.
+     My fiance and I were originally using an app called Tuned, it was created by Meta. <br>
+     Although eventually they decided they decided to pull the plug and shut down the app in September.
+   This deeply sadden us and we wanted to create an app for long distance couples who struggle like every other couple does when they are apart.</p>
+</div>
+<script>
+var myVar;
+function myFunction() {
+ myVar = setTimeout(showPage, 5000);
+}
+function showPage() {
+ document.getElementById("loader").style.display = "none";
+ document.getElementById("myDiv").style.display = "inline-block";
+}
+   var path = anime.path('.background-layer');
+   anime.timeline({ loop: false })
+       .add({
+           targets: '.background-layer',
+           rotate: 560,
+           duration: 5000,
+           loop: 1
+       })
+</script>
     <footer>
         Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
     </footer>
