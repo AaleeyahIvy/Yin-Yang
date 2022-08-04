@@ -31,14 +31,69 @@
     </div>
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
       <p>THIS IS THE APP PAGE</p>
-      <div class="quickstart-user-details-container">
-        Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
-        <div>Firebase auth <code>currentUser</code> object value:</div>
-        <pre><code id="quickstart-account-details">null</code></pre>
-      </div>
+       <div class="quickstart-user-details-container">
+            Firebase sign-in status: <span id="quickstart-sign-in-status">Unknown</span>
+            <div>Firebase auth <code>currentUser</code> object value:</div>
+            <pre><code id="quickstart-account-details">null</code></pre>
+          </div>
     </div>
     <script>
+      import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
+
+// TODO: Replace the following with your app's Firebase project configuration
+var firebaseConfig = {
+apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
+  authDomain: "yinyang-33041.firebaseapp.com",
+  projectId: "yinyang-33041",
+  storageBucket: "yinyang-33041.appspot.com",
+  messagingSenderId: "1066794609552",
+  appId: "1:1066794609552:web:5c0157ed7d32ed273a2115",
+  measurementId: "G-FMBHFQDCKC",
+  databaseURL: "https://yinyang-33041-default-rtdb.firebaseio.com/"
+  };
+
+  // Initialize All
+  const auth = getAuth(app);
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  
     var myVar;
+    initApp = function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            var email = user.email;
+            var uid = user.uid;
+            var phoneNumber = user.phoneNumber;
+            var providerData = user.providerData;
+            user.getIdToken().then(function(accessToken) {
+              document.getElementById('sign-in-status').textContent = 'Signed in';
+              document.getElementById('sign-in').textContent = 'Sign out';
+              document.getElementById('account-details').textContent = JSON.stringify({
+                email: email,
+                phoneNumber: phoneNumber,
+                uid: uid,
+                accessToken: accessToken,
+                providerData: providerData
+              }, null, '  ');
+            });
+          } else {
+            // User is signed out.
+            document.getElementById('sign-in-status').textContent = 'Signed out';
+            document.getElementById('sign-in').textContent = 'Sign in';
+            document.getElementById('account-details').textContent = 'null';
+          }
+        }, function(error) {
+          console.log(error);
+        });
+      };
+
+      window.addEventListener('load', function() {
+        initApp()
+      });
+
     function myFunction() {
       myVar = setTimeout(showPage, 5000);
     }

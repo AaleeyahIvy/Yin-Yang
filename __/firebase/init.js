@@ -1,8 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
-import firebaseui from "firebaseui";
-
 
 // TODO: Replace the following with your app's Firebase project configuration
 var firebaseConfig = {
@@ -20,3 +18,4 @@ apiKey: "AIzaSyC8pbfAmEmaBFoohuHE1lMXi-KQyhrpqXI",
   const auth = getAuth(app);
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
+  
