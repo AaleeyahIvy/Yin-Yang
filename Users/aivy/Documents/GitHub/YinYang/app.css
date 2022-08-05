@@ -62,7 +62,8 @@
     text-align: center;
   }
   .color-container{
-    display: inline;
+    text-align: center;
+    float: initial;
   }
   .color-container div{
     padding: 5px;
