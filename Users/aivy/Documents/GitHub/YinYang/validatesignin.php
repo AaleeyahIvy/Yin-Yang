@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +8,8 @@
 <body>
 <?php
     // get the data from the form
-    $username = $_REQUEST['username'];
-    $password = $_REQUEST['password'];
+    $username = mysqli_real_escape_string($_POST['username']); 
+    $password = mysqli_real_escape_string($_POST['password']); 
 
     //DONT FORGET TO BLANK THESE VALUES OUT// 
     $dbhost = 'localhost';
@@ -18,9 +19,23 @@
 
     $conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
     $sql = "SELECT * FROM users WHERE username = '$username' AND password ='$password'";
-    $result = mysql_query($sql);
-    $count = mysql_num_rows($result);
-    if($conn === false){
+    $result = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($result);
+    if($count == 1) {
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
+        echo '<button class="connectbtn"><a href="app.html">Go to App</a></button>';
+        echo '<h1>Everything looks good!</h1><br>';
+        header("location:app.html");
+    
+    } else {
+
+        echo "Wrong Username or Password";
+        
+        // redirect to login page
+        header("location:signin.html");
+    }
+    /*if($conn === false){
         die("ERROR: Could not connect. "
             . mysqli_connect_error());
     }
@@ -31,7 +46,7 @@
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
-    // Close connection
+    // Close connection*/
     mysqli_close($conn);
     ?>
     <main>
