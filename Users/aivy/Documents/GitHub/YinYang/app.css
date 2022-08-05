@@ -66,6 +66,8 @@
     float: initial;
   }
   .color-container div{
+    display: block;
+    border-radius: 15px;
     margin: 35px;
     padding: 35px;
   }
