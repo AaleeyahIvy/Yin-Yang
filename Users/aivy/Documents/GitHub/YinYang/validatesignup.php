@@ -30,8 +30,6 @@
             . mysqli_connect_error());
     }
     if (mysqli_query($conn, $sql)) {
-        echo '<button class="connectbtn"><a href="app.html">Go to App</a></button>';
-        echo '<h1>Everything looks good!</h1><br>';
         header('Location:app.html');
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -46,4 +44,3 @@
     </main>
 </body>
 </html>
-

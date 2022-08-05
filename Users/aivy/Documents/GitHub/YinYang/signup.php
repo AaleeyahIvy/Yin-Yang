@@ -9,17 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
-<?php if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
-          $loginError = "Wrong Username or Password";
-      }
-    ?>
     <body onload="myFunction()" style="margin:0;">
-        <nav class="col-12 nav">
-            <a href=index.html>Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="signin.html">Sign In</a>
-          </nav>
+      <nav class="col-12 nav">
+        <a href=index.html>Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="signin.html">Sign In</a>
+      </nav>
     <div id="loader">
         <svg class="background-layer" viewBox='-14 -7 28 14' xmlns='http://www.w3.org/2000/svg'>
             <circle r='6' />
@@ -34,18 +30,23 @@
         </svg>
     </div>
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
-        <h1>Sign In</h1>
-        <h2>Welcome Back:</h2>
-        <form style="font-weight: bold;" action="validatesignin.php" method="post">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" placeholder="Enter Username" required>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
-          <span class="error">*<?php echo $loginError; ?></span>
-          <br>
-          <input class="submit" name="submit" type="submit" value="Sign In">
-        </form>
-        
+      <h1>Sign Up</h1>
+      <h2>Get Started:</h2>
+      <form style="font-weight: bold;" action="validatesignup.php" method="post">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter First Last Name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Email" required>
+        <label for="phonenumber">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Enter Phone Number" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Create Username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Create Password" required><br>
+        <br>
+        <label for="submit">Get Started!!!!</label>
+        <input class="submit" name="submit" type="submit" value="Sign Up">
+      </form>
     </div>
     <script>
       var myVar;
@@ -65,8 +66,6 @@
                  loop: 1
              })
    </script>
-    <footer>
-        Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
-    </footer>
-</body>
+</script>
+    </body>
 </html>
