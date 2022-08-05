@@ -61,3 +61,19 @@
     color: black;
     text-align: center;
   }
+  .color-aqua {
+    background-color: rgb(23, 231, 231);
+  }
+  .color-fuschia {
+    background-color: rgb(207, 15, 182);
+  }
+  .color-lime {
+    background-color: rgb(63, 184, 89);
+  }
+  .color-sunflower {
+    background-color: rgb(236, 222, 15);
+  }
+  .color-lightmoon {
+    background-color: rgb(83, 99, 99);
+  }
+
