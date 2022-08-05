@@ -23,7 +23,7 @@
     $dbtable = "users";
 
     $conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
-    $sql = "INSERT INTO users VALUES ('$fullname', '$email', '$phone','$username', '$password')";
+    $sql = "INSERT INTO `users` (`fullname`, `email`, `phone`, `username`, `password`) VALUES ('$fullname', '$email', '$phone','$username', '$password')";
 
     if($conn === false){
         die("ERROR: Could not connect. "

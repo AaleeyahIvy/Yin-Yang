@@ -61,19 +61,40 @@
     color: black;
     text-align: center;
   }
+  .color-container{
+    display: inline;
+  }
+  .color-container div{
+    padding: 5px;
+  }
   .color-aqua {
+    padding: 5px;
     background-color: rgb(23, 231, 231);
+    height: 50px;
+    width: 50px;
   }
   .color-fuschia {
+    padding: 5px;
     background-color: rgb(207, 15, 182);
+    height: 50px;
+    width: 50px;
   }
   .color-lime {
+    padding: 5px;
     background-color: rgb(63, 184, 89);
+    height: 50px;
+    width: 50px;
   }
   .color-sunflower {
+    padding: 5px;
     background-color: rgb(236, 222, 15);
+    height: 50px;
+    width: 50px;
   }
   .color-lightmoon {
+    padding: 5px;
     background-color: rgb(83, 99, 99);
+    height: 50px;
+    width: 50px;
   }
 
