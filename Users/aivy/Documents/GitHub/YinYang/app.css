@@ -62,14 +62,15 @@
     text-align: center;
   }
   .color-container{
-    text-align: center;
-    float: initial;
+    display: inline-flex;
   }
   .color-container div{
-    display: block;
     border-radius: 15px;
     margin: 35px;
     padding: 35px;
+  }
+  .color-container div:hover{
+    background-color: #5e60610e;
   }
   .color-aqua {
     margin: 35px;
