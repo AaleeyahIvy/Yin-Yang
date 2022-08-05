@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
+<?php if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
+          $loginError = "Wrong Username or Password";
+      }
+    ?>
     <body onload="myFunction()" style="margin:0;">
         <nav class="col-12 nav">
             <a href=index.html>Home</a>
@@ -32,15 +36,16 @@
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
         <h1>Sign In</h1>
         <h2>Welcome Back:</h2>
-        <form style="font-weight: bold;" action="validate.html" method="GET">
-          <label for="email">Email:</label>
-          <input type="text" id="email" name="email" placeholder="Enter Email" required>
+        <form style="font-weight: bold;" action="validatesignin.php" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" placeholder="Enter Username" required>
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+          <span class="error">*<?php echo $loginError; ?></span>
           <br>
-          <label for="submit">Get Started!!!!</label>
-          <input class="submit" name="submit" type="submit" value="Submit">
+          <input class="submit" name="submit" type="submit" value="Sign In">
         </form>
+        
     </div>
     <script>
       var myVar;
