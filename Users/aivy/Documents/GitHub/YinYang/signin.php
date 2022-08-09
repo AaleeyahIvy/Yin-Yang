@@ -12,6 +12,30 @@
 <?php if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
           $loginError = "Wrong Username or Password";
       }
+      $message = "";
+    if (count($_POST) > 0) {
+    $isSuccess = 0;
+    $conn = mysqli_connect("localhost", "root", "", "user_authentication");
+    $userName = $_POST['userName'];
+    $sql = "SELECT * FROM users WHERE username= ?";
+    $statement = $conn->prepare($sql);
+    $statement->bind_param('s', $username);
+    $statement->execute();
+    $result = $statement->get_result();
+    while ($row = $result->fetch_assoc()) {
+        if (! empty($row)) {
+            $hashedPassword = $row["password"];
+            if (password_verify($_POST["password"], $hashedPassword)) {
+                $isSuccess = 1;
+            }
+        }
+    }
+    if ($isSuccess == 0) {
+        $message = "Invalid Username or Password!";
+    } else {
+        header("Location:  app.html");
+    }
+}
     ?>
     <body onload="myFunction()" style="margin:0;">
         <nav class="col-12 nav">
