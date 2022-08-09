@@ -8,6 +8,8 @@
 <?php
 
     include('db.php');
+
+    require_once './lib/vendor/autoload.php';
     // get the data from the form
     $username = mysqli_real_escape_string($conn, $_REQUEST['username']); 
     $password = mysqli_real_escape_string($conn, $_REQUEST['password']); 

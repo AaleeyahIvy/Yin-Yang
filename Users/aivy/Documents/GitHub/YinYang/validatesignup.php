@@ -8,6 +8,8 @@
 <?php
 
     include('db.php');
+
+    require_once './lib/vendor/autoload.php';
     // get the data from the form
     $fullname = $_REQUEST['fullname'];
     $email = $_REQUEST['email'];
