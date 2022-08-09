@@ -75,7 +75,9 @@
       margin: 15px;
   }
   .animate-bottom{
-    background-color: #ffffff;
+      background-color: #ffffff;
+      margin: 15px;
+      padding: 25px;
       border: 2px black solid;
       border-radius: 55px;
       border-radius:55px;
