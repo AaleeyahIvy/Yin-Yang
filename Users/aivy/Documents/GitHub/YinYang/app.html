@@ -21,7 +21,7 @@
 <div id="myDiv">
   <div class="main">
     <div class="mood">
-      <h1>Date: 8-9-2022</h1>
+      <h1 class="date">Date</h1>
       <p>ying yang symbol pieces and then colors</p>
       <hr>
     </div>
@@ -40,8 +40,17 @@
 </div>
 </div>
 <script>
-//javascript if needed
-</script>
+  document.getElementsByClassName("date").innerHTML = showDate();
+  function showDate(){
+    var d = new Date(),
+    minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
+    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
+    ampm = d.getHours() >= 12 ? 'pm' : 'am',
+    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    return days[d.getDay()]+' '+months[d.getMonth()]+' '+d.getDate()+' '+d.getFullYear()+' '+hours+':'+minutes+ampm;
+  }
+  </script>
     <footer>
         Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
     </footer>
