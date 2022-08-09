@@ -6,6 +6,8 @@
 </head>
 <body>
 <?php
+
+    include('db.php');
     // get the data from the form
     $fullname = $_REQUEST['fullname'];
     $email = $_REQUEST['email'];
@@ -15,14 +17,6 @@
     
     //Ensure passwords are not public
     $password = password_hash($password, PASSWORD_BCRYPT);
-
-    //DONT FORGET TO BLANK THESE VALUES OUT// 
-    $dbhost = 'localhost';
-    $dbuser = 'root';
-    $dbpass = "iloveyou16!";
-    $dbtable = "users";
-
-    $conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
     $sql = "INSERT INTO `users` (`fullname`, `email`, `phone`, `username`, `password`) VALUES ('$fullname', '$email', '$phone','$username', '$password')";
 
     if($conn === false){

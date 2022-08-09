@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
-<?php if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
+<?php 
+if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
           $loginError = "Wrong Username or Password";
       }
       $message = "";

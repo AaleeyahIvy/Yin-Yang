@@ -6,12 +6,8 @@
 </head>
 <body>
 <?php
-//DONT FORGET TO BLANK THESE VALUES OUT// 
-    $dbhost = 'localhost';
-    $dbuser = 'root';
-    $dbpass = "iloveyou16!";
-    $dbtable = "users";
-    $conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
+
+    include('db.php');
     // get the data from the form
     $username = mysqli_real_escape_string($conn, $_REQUEST['username']); 
     $password = mysqli_real_escape_string($conn, $_REQUEST['password']); 
