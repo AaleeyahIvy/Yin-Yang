@@ -57,7 +57,7 @@
                 </div>';
         }
           if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-              $_emailErr = '<div class="alert alert-danger">
+              $emailErr = '<div class="alert alert-danger">
                       Email format is invalid.
                   </div>';
           }
@@ -66,8 +66,8 @@
                       Only 10-digit mobile numbers allowed.
                   </div>';
           }
-          if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $_password)) {
-              $_passwordErr = '<div class="alert alert-danger">
+          if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $password)) {
+              $passwordErr = '<div class="alert alert-danger">
                        Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
                   </div>';
           }
