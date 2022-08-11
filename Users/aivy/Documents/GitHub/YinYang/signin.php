@@ -61,7 +61,7 @@ if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
     <div style="display:none;" id="myDiv" class="col-12 animate-bottom">
         <h1>Sign In</h1>
         <h2>Welcome Back:</h2>
-        <form style="font-weight: bold;" action="Users/aivy/Documents/GitHub/YinYang/verification/validatesignin.php" method="post">
+        <form style="font-weight: bold;" action="verification/validatesignin.php" method="post">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" placeholder="Enter Username" required>
           <label for="password">Password:</label>

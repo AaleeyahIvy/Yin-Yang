@@ -7,9 +7,9 @@
 <body>
 <?php
 
-    include('db.php');
+    include('../config/db.php');
 
-    require_once './lib/vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     //Global messages for errors
     global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
     global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
@@ -25,7 +25,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $email_check_query = mysqli_query($connection, "SELECT * FROM users WHERE email = '{$email}' ");
+    $email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     $rowCount = mysqli_num_rows($email_check_query);
 
     if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($mobilenumber) && !empty($password)){
@@ -39,11 +39,11 @@
           ';
       } else {
           // clean the form data before sending to database
-          $fullname = mysqli_real_escape_string($connection, $fullname);
-          $username = mysqli_real_escape_string($connection, $username);
-          $email = mysqli_real_escape_string($connection, $email);
-          $phone = mysqli_real_escape_string($connection, $phone);
-          $password = mysqli_real_escape_string($connection, $password);
+          $fullname = mysqli_real_escape_string($conn, $fullname);
+          $username = mysqli_real_escape_string($conn, $username);
+          $email = mysqli_real_escape_string($conn, $email);
+          $phone = mysqli_real_escape_string($conn, $phone);
+          $password = mysqli_real_escape_string($conn, $password);
 
           // perform validation
           if(!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
@@ -89,10 +89,10 @@
               '{$token}', '0', now())";
               
               // Create mysql query
-              $sqlQuery = mysqli_query($connection, $sql);
+              $sqlQuery = mysqli_query($conn, $sql);
               
               if(!$sqlQuery){
-                  die("MySQL query failed!" . mysqli_error($connection));
+                  die("MySQL query failed!" . mysqli_error($conn));
               } 
 
               // Send verification email
@@ -159,7 +159,8 @@
       }            
   }
     }
-    // Close connection
+    header
+    // Close conn
     mysqli_close($conn);
     ?>
     <main>

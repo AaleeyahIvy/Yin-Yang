@@ -7,9 +7,9 @@
 <body>
 <?php
 
-    include('db.php');
+    include('../config/db.php');
 
-    require_once './lib/vendor/autoload.php';
+    require_once '../vendor/autoload.php';
     // get the data from the form
     $username = mysqli_real_escape_string($conn, $_REQUEST['username']); 
     $password = mysqli_real_escape_string($conn, $_REQUEST['password']); 
