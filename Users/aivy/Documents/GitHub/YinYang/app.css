@@ -83,11 +83,25 @@
   background: linear-gradient(to right, #cf7a7a 0%, #616966 19%, #2d7688 42%, #694e9b 79%, #356a77 100%);
 }
 input{
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.089);
+}
+input:hover{
+  cursor:text;
+}
+button:hover{
+  cursor:pointer;
+  background-color: rgb(202, 202, 202);
+  color: white;
+}
+button{
+  text-align: center;
   text-decoration: none;
   border-radius: 5px;
   border: 2px solid rgba(0, 0, 0, 0);
 }
-input:
 .nav{
   display: inline;
   float: right;
@@ -121,7 +135,17 @@ nav a:hover{
   border-radius: 15px;
 }
 .textbox{
+  display: grid;
   padding: 15px;
   border: 2px solid #000000;
   border-radius: 15px;
+}
+.chat{
+  text-align: left;
+  float: left;
+}
+.chat2{
+  right: 50%;
+  text-align: right;
+  float: right;
 }
