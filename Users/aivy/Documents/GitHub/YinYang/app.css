@@ -45,8 +45,6 @@
   .col-12 {width: 100%;}
   
   body{
-      margin-left: auto;
-      margin-right: auto;
       display: block;
       text-align: center;
       font-family: 'Thasadith', sans-serif;
@@ -61,49 +59,6 @@
     color: black;
     text-align: center;
   }
-  .color-container{
-    display: inline-flex;
-  }
-  .color-container div{
-    border-radius: 15px;
-    margin: 35px;
-    padding: 35px;
-  }
-  .color-container div:hover{
-    background-color: #5e60610e;
-  }
-  .color-aqua {
-    margin: 35px;
-    padding: 35px;
-    background-color: rgb(23, 231, 231);
-    height: 50px;
-    width: 50px;
-  }
-  .color-fuschia {
-    padding: 35px;
-    background-color: rgb(207, 15, 182);
-    height: 50px;
-    width: 50px;
-  }
-  .color-lime {
-    padding: 35px;
-    background-color: rgb(63, 184, 89);
-    height: 50px;
-    width: 50px;
-  }
-  .color-sunflower {
-    padding: 35px;
-    background-color: rgb(236, 222, 15);
-    height: 50px;
-    width: 50px;
-  }
-  .color-lightmoon {
-    padding: 35px;
-    background-color: rgb(83, 99, 99);
-    height: 50px;
-    width: 50px;
-  }
-
 /*ADD THE TRANSFORMING NAV BAR FOR APP CSS*/
 
 
@@ -149,4 +104,8 @@ nav a:hover{
 }
 .mood {
   width: 50%;
+}
+.aside p{
+  background-color: white;
+  box-shadow: 2px 2px 2px #000000;
 }
