@@ -9,7 +9,6 @@
 
     include('../config/db.php');
 
-    require_once '../vendor/autoload.php';
     // get the data from the form
     $username = mysqli_real_escape_string($conn, $_REQUEST['username']); 
     $password = mysqli_real_escape_string($conn, $_REQUEST['password']); 
@@ -22,7 +21,6 @@
         session_start();
         $_SESSION["username"] = $username;
         header("Location:app.html");
-        exit();
     
     } else {
 

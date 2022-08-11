@@ -159,7 +159,7 @@
       }            
   }
     }
-    header
+    header("Location: YinYang/app.html");
     // Close conn
     mysqli_close($conn);
     ?>
