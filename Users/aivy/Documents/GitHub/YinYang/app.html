@@ -11,18 +11,20 @@
 </head>
 <body>
   <div class="col-12 headerbuttons">
-    <div class="col-3" onclick="menuToggle(this)">
+    <div class="col-1 menu" onclick="menuToggle(this)">
       <div class="menu1"></div>
       <div class="menu2"></div>
       <div class="menu3"></div>
     </div>
-    <div class="col-1 headbuttons">Calender</div>
-    <div class="col-1 headbuttons">Notes</div>
-    <div class="col-1 headbuttons">To-Do</div>
+    <ul id="myLinks" onclick="menuList()">
+    <a><li>Link</li></a>
+    <a><li>Link</li></a>
+    <a><li>Link</li></a>
+    </ul>
+    <h1 id="date"></h1>
   </div>
 <div class="col-12 app-container">
   <!--Display date for app, we should track dates of messages, images, and posts added to app so they can browse those as memories-->
-  <h1 id="date"></h1>
   <div class="col-12 content">
     <div class="col-3 sidebar">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
       Netus et malesuada fames ac. 
@@ -58,6 +60,14 @@
   function menuToggle(x) {
   x.classList.toggle("change");
   }
+  function menuList() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
   </script>
 </body>
 </html>
