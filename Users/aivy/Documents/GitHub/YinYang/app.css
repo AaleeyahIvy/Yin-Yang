@@ -101,3 +101,13 @@
   .change .menu3 {
     transform: rotate(45deg) translate(-8px, -8px);
   }
+  .headerbuttons{
+    display: flex;
+    border-radius: 20px;
+    background-color: ghostwhite;
+    justify-content: space-between;
+  }
+  .headbuttons:active{
+    background-color: #333;
+    border-radius: 25px;
+  }
