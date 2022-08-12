@@ -85,3 +85,19 @@
     border: white;
     border-radius: 10px;
   }
+  .menu1, .menu2, .menu3{
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  .change .menu1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .menu2 {opacity: 0;}
+  
+  .change .menu3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+  }

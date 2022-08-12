@@ -11,7 +11,11 @@
 </head>
 <body>
   <div class="col-12 headerbuttons">
-    <div class="col-3 headbuttons">Menu</div>
+    <div class="col-3 headbuttons" onclick="menuToggle(this)">
+      <div class="menu1"></div>
+      <div class="menu2"></div>
+      <div class="menu3"></div>
+    </div>
     <div class="col-3 headbuttons">1</div>
     <div class="col-3 headbuttons">2</div>
     <div class="col-3 headbuttons">3</div>
@@ -39,6 +43,9 @@
     months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
     days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
     return months[d.getMonth()]+' &#x262F; '+d.getDate()+' &#x262F; '+d.getFullYear();
+  }
+  function menuToggle(x) {
+  x.classList.toggle("change");
   }
   </script>
 </body>
