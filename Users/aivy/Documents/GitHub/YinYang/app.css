@@ -50,100 +50,35 @@
       background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
     
   }
-   footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: black;
-    text-align: center;
+  .app-container{
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
   }
-/*ADD THE TRANSFORMING NAV BAR FOR APP CSS*/
-
-
-
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background:  linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to right, #cf7a7a 0%, #616966 19%, #2d7688 42%, #694e9b 79%, #356a77 100%);
-}
-input{
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0, 0.089);
-}
-input:hover{
-  cursor:text;
-}
-button:hover{
-  cursor:pointer;
-  background-color: rgb(202, 202, 202);
-  color: white;
-}
-button{
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: 2px solid rgba(0, 0, 0, 0);
-}
-.nav{
-  display: inline;
-  float: right;
-}
-.nav a {
-  color: white;
-  position: relative;
-  top: 0px;
-  transition: 0.3s;
-  text-decoration: none;
-  border-width: 25px;
-  padding: 25px;
-  float: right;
-  font-weight:bolder;
-}
-nav a:hover{
-  background-color: rgba(0, 0, 0, 0.219);
-  top: -5px;
-}
-.mood{
-  margin-left: 450px;
-  width: 450px;
-  height: 150px;
-  border: 2px solid #000000;
-  border-radius: 15px;
-}
-
-.aside p{
-  padding: 15px;
-  border: 2px solid #000000;
-  border-radius: 15px;
-}
-.textbox{
-  display: flex;
-  padding: 15px;
-  border: 2px solid #000000;
-  border-radius: 15px;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  flex-direction: column;
-}
-.chat2{
-  flex-direction: row-reverse;
-}
+  footer {
+    display: flex;
+    height: 50px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .content {
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+  .chatbuttons{
+    border: black;
+    border-radius: 55px;
+    background-color: black;
+    color: white;
+    padding: 15px;
+  }
+  .chatbuttons:hover{
+    background-color: rgb(73, 63, 63);
+  }
+  input{
+    border: white;
+    border-radius: 10px;
+  }

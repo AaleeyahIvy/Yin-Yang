@@ -10,34 +10,17 @@
     <title>Yin Yang App</title>
 </head>
 <body>
-  <nav class="col-12 nav">
-      <a href=#></a>
-    </nav>
-<!--Main Page-->
-<div id="myDiv">
-  <div class="col-12 main">
-    <div class="mood">
-      <h1 id="date" onload="showDate()">Date</h1>
-      <p>ying yang symbol pieces and then colors</p>
-    </div>
-  <h1>Partner Spaces</h1>
-  <div class=" col-12 app-container">
-    <p>Need to connect to your partner?
-    <button>Generate Link</button></p>
-    <div class="col-2 aside"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-      Ipsum dolor sit amet consectetur adipiscing elit duis tristique sollicitudin. Est placerat in egestas erat. 
-      Congue eu consequat ac felis donec et odio pellentesque.</p>
-    </div>
-    <div class="col-8 textbox">
-      <p class="col-3 chat">Lorem ipsum dolor sit amet...</p>
-      <p class="col-3 chat2">Lorem ipsum dolor sit amet...</p>
-      <p class="col-3 chat">Lorem ipsum dolor sit amet...</p>
-      <p class="col-3 chat2">Lorem ipsum dolor sit amet...</p>
-      <input for="textbox" id="textbox" name="textbox" placeholder="Text your partner...">
-    </div>
+<div class="col-12 app-container">
+  <div class="col-12 content">
+    <h1 id="date"></h1>
   </div>
-  </div>
-  </div>
+  <footer class="col-4">
+    <input type="text" id="chatbox" name="chatbox" placeholder="Type to your partner..." required>
+    <div class="chatbuttons">Add</div>
+    <div class="chatbuttons">Picture</div>
+    <div class="chatbuttons">Emoji</div>
+  </footer>
+</div>
 <script>
   document.getElementById("date").innerHTML = showDate();
   function showDate(){
@@ -47,8 +30,5 @@
     return months[d.getMonth()]+' &#x262F; '+d.getDate()+' &#x262F; '+d.getFullYear();
   }
   </script>
-    <footer>
-        Created By: Aaleeyah Ivy & Austin Kilgore using Anime.Js, HTML, JS, CSS, and etc.
-    </footer>
 </body>
 </html>
