@@ -67,6 +67,9 @@
   .content {
     padding: 20px;
     padding-bottom: 50px;
+    border-radius: 17px;
+    background-color: white;
+    box-shadow: 2px 2px 2px ghostwhite;
   }
   .chatbuttons{
     border: black;
