@@ -69,7 +69,7 @@
     padding-bottom: 50px;
     border-radius: 17px;
     background-color: white;
-    box-shadow: 2px 2px 2px ghostwhite;
+    box-shadow: 2px 2px 2px rgb(37, 37, 41);
   }
   .chatbuttons{
     border: black;
@@ -79,7 +79,7 @@
     padding: 15px;
   }
   .chatbuttons:hover{
-    background-color: rgb(73, 63, 63);
+    cursor: pointer;
   }
   input{
     border: white;
