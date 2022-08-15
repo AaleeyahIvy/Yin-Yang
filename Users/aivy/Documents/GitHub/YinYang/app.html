@@ -11,16 +11,16 @@
 </head>
 <body>
   <div class="col-12 headerbuttons">
-    <div class="col-1 menu" onclick="menuToggle(this)">
+    <div id="menu" class="col-1 menu" onclick="menuToggle(this)">
       <div class="menu1"></div>
       <div class="menu2"></div>
       <div class="menu3"></div>
+    <div id="myLinks">
+    <a>Link</a>
+    <a>Link</a>
+    <a>Link</a>
     </div>
-    <ul id="myLinks" onclick="menuList()">
-    <a><li>Link</li></a>
-    <a><li>Link</li></a>
-    <a><li>Link</li></a>
-    </ul>
+    </div>
     <h1 id="date"></h1>
   </div>
 <div class="col-12 app-container">
@@ -50,6 +50,8 @@
   </footer>
 </div>
 <script>
+  var menu = document.getElementById("menu");
+  menu.addEventListener("click", menuList());
   document.getElementById("date").innerHTML = showDate();
   function showDate(){
     var d = new Date(),
