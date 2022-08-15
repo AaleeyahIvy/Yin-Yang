@@ -55,9 +55,8 @@
   .app-container{
     min-height: 100%;
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
   }
   footer {
     display: flex;
