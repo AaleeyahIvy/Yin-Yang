@@ -51,11 +51,6 @@
                       Only letters and white space allowed.
                   </div>';
           }
-          if(!preg_match("/^[a-zA-Z ]*$/", $username)) {
-            $userNameErr = '<div class="alert alert-danger">
-                    Only letters and white space allowed.
-                </div>';
-        }
           if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
               $emailErr = '<div class="alert alert-danger">
                       Email format is invalid.
@@ -133,12 +128,7 @@
   } else {
       if(empty($fullname)){
           $fullNameEmptyErr = '<div class="alert alert-danger">
-              First name can not be blank.
-          </div>';
-      }
-      if(empty($username)){
-          $userNameEmptyErr = '<div class="alert alert-danger">
-              Last name can not be blank.
+              Full name can not be blank.
           </div>';
       }
       if(empty($email)){
