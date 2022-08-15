@@ -61,10 +61,11 @@
   }
   footer {
     display: flex;
-    height: 50px;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    height:50px;
+    background-color: #00b1dd;
+    border-radius: 55px;
+    align-items: center;
+    justify-content: space-around;
   }
   .content {
     display: flex;
@@ -74,20 +75,26 @@
     background-color: white;
     justify-content: space-around;
   }
-  .chatbuttons{
-    border: black;
+  .material-icons{
     border-radius: 55px;
-    background-color: black;
+    background-color: #33cff7;
+    size: 50px;
     color: white;
-    padding: 15px;
   }
-  .chatbuttons:hover{
+  .material-icons:hover{
     background-color: rgba(43, 42, 42, 0.329);
     cursor: pointer;
   }
-  input{
-    border: white;
+  input, textarea{
+    size: 100px;
+    border:
+    white;
+    background-color: #33cff7;
     border-radius: 10px;
+    height: 25px;
+  }
+  input::placeholder{
+    color: white;
   }
   .menu1, .menu2, .menu3{
     width: 35px;
