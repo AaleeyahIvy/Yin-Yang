@@ -73,8 +73,7 @@
           }
           
           // Store the data in db, if all the preg_match condition met
-          if((preg_match("/^[a-zA-Z ]*$/", $username)) && (preg_match("/^[a-zA-Z ]*$/", $fullname)) &&
-           (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
+          if((preg_match("/^[a-zA-Z ]*$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
            (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $password))){
 
               // Generate random activation token
@@ -96,7 +95,7 @@
               } 
 
               // Send verification email
-              if($sqlQuery) {
+              /*if($sqlQuery) {
                   $msg = 'Click on the activation link to verify your email. <br><br>
                     <a href="http://localhost:8888/php-user-authentication/user_verificaiton.php?token='.$token.'"> Click here to verify email</a>
                   ';
@@ -128,7 +127,7 @@
                           Verification email has been sent!
                       </div>';
                   }
-              }
+              } */
           }
       }
   } else {
