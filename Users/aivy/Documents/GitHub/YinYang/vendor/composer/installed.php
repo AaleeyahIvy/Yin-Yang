@@ -94,6 +94,15 @@
                 0 => '2.0|3.0',
             ),
         ),
+        'symfony/google-mailer' => array(
+            'pretty_version' => 'v6.1.0',
+            'version' => '6.1.0.0',
+            'reference' => '34cc38a23fa7641f8750b056aee3f054be3380c4',
+            'type' => 'symfony-mailer-bridge',
+            'install_path' => __DIR__ . '/../symfony/google-mailer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'symfony/mailer' => array(
             'pretty_version' => 'v6.1.3',
             'version' => '6.1.3.0',

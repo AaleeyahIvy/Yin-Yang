@@ -23,6 +23,7 @@ class ComposerStaticInitf2661296abf77e6511e57eeb15e01abe
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\EventDispatcher\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
+            'Symfony\\Component\\Mailer\\Bridge\\Google\\' => 39,
             'Symfony\\Component\\Mailer\\' => 25,
             'Symfony\\Component\\EventDispatcher\\' => 34,
         ),
@@ -70,6 +71,10 @@ class ComposerStaticInitf2661296abf77e6511e57eeb15e01abe
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
+        ),
+        'Symfony\\Component\\Mailer\\Bridge\\Google\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/google-mailer',
         ),
         'Symfony\\Component\\Mailer\\' => 
         array (
