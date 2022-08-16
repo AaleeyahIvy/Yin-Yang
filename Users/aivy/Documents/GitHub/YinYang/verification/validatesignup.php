@@ -24,6 +24,7 @@
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $userID = $
 
     //$email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     //$rowCount = mysqli_num_rows($email_check_query);
@@ -65,9 +66,9 @@
           $password = mysqli_real_escape_string($conn, $password);
 
           // Store the data in db, if all the preg_match condition met
-          if((preg_match("/^[A-Za-z][A-Za-z0-9]{5,31}$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
+          /*if((preg_match("/^[A-Za-z][A-Za-z0-9]{5,31}$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
            (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $password))){
-
+*/
               // Generate random activation token
               $token = md5(rand().time());
 
@@ -75,9 +76,8 @@
               $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
               // Query
-              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active,
-              date_time) VALUES ('{$fullname}', '{$email}', '{$phone}', '{$username}', '{$password}', '{$password_hash}', 
-              '{$token}', '0', now())";
+              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active, datetime) 
+              VALUES ('{$fullname}', '{$email}', '{$phone}', '{$username}', '{$password_hash}', '{$token}', '0', now())";
               
               // Create mysql query
               $sqlQuery = mysqli_query($conn, $sql);
@@ -120,7 +120,7 @@
                       </div>';
                   }
               } */
-          }
+          //}
   /*} else {
       if(empty($fullname)){
           $fullNameEmptyErr = '<div class="alert alert-danger">
