@@ -24,7 +24,6 @@
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $userID = $
 
     //$email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     //$rowCount = mysqli_num_rows($email_check_query);
@@ -87,9 +86,9 @@
               } 
 
               // Send verification email
-              /*if($sqlQuery) {
+              if($sqlQuery) {
                   $msg = 'Click on the activation link to verify your email. <br><br>
-                    <a href="http://localhost:8888/php-user-authentication/user_verificaiton.php?token='.$token.'"> Click here to verify email</a>
+                    <a href="http://localhost/Github/Yin-Yang/Users/aivy/Documents/GitHub/YinYang/verification/user_verificaiton.php?token='.$token.'"> Click here to verify email</a>
                   ';
 
                   // Create the Transport
@@ -119,7 +118,7 @@
                           Verification email has been sent!
                       </div>';
                   }
-              } */
+              } 
           //}
   /*} else {
       if(empty($fullname)){
