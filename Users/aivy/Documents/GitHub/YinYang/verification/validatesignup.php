@@ -7,7 +7,7 @@
 <body>
 <?php
     use Symfony\Component\Mailer\Mailer; 
-    use Symfony\Component\Mailer\Transport\Transport; 
+    use Symfony\Component\Mailer\Transport;
     use Symfony\Component\Mailer\Transport\SendmailTransport; 
     use Symfony\Component\Mime\Email;
     include('../config/db.php');
@@ -90,7 +90,7 @@
 
               // Send verification email
               if($sqlQuery) {
-                $transport = new SendmailTransport(); 
+                $transport = Transport::fromDsn('smtp://YinYangSends@gmail.com:yinyang19982002@default');
                 $mailer = new Mailer($transport); 
                   
                   $email_ = (new Email())
