@@ -6,10 +6,12 @@
 </head>
 <body>
 <?php
-
+    use Symfony\Component\Mailer\Mailer; 
+    use Symfony\Component\Mailer\Transport\SendmailTransport; 
+    use Symfony\Component\Mime\Email;
     include('../config/db.php');
-
     require_once '../vendor/autoload.php';
+    
     //Global messages for errors
     //global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
     //global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
@@ -91,23 +93,21 @@
                     <a href="http://localhost/Github/Yin-Yang/Users/aivy/Documents/GitHub/YinYang/verification/user_verificaiton.php?token='.$token.'"> Click here to verify email</a>
                   ';
 
-                  // Create the Transport
-                  $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-                  ->setUsername('your_email@gmail.com')
-                  ->setPassword('your_email_password');
-
-                  // Create the Mailer using your created Transport
-                  $mailer = new Swift_Mailer($transport);
-
-                  // Create a message
-                  $message = (new Swift_Message('Please Verify Email Address!'))
-                  ->setFrom([$email => $username])
-                  ->setTo($email)
-                  ->addPart($msg, "text/html")
-                  ->setBody('Hello! User');
-
-                  // Send the message
-                  $result = $mailer->send($message);
+                $transport = new SendmailTransport(); 
+                $mailer = new Mailer($transport); 
+                  
+                  $email = (new Email())
+                      ->from('hello@example.com')
+                      ->to('you@example.com')
+                      //->cc('cc@example.com')
+                      //->bcc('bcc@example.com')
+                      //->replyTo('fabien@example.com')
+                      //->priority(Email::PRIORITY_HIGH)
+                      ->subject('Time for Symfony Mailer!')
+                      ->text('Sending emails is fun again!')
+                      ->html('<p>See Twig integration for better HTML integration!</p>');
+                  
+                  $mailer->send($email);
                     
                   if(!$result){
                       $email_verify_err = '<div class="alert alert-danger">
