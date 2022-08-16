@@ -11,33 +11,52 @@
 
     require_once '../vendor/autoload.php';
     //Global messages for errors
-    global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
-    global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
+    //global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
+    //global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
 
     //Empty before inserted
-    $username = $email = $phone = $password = "";
+    //$username = $email = $phone = $password = "";
 
     // get the data from the form
-    if(isset($_POST["submit"])){
+    //if(isset($_POST["sign-up"])){
     $fullname = $_POST['fullname'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
-    $rowCount = mysqli_num_rows($email_check_query);
+    //$email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
+    //$rowCount = mysqli_num_rows($email_check_query);
 
-    if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($mobilenumber) && !empty($password)){
+    /*if(!empty($fullname) && !empty($username) && !empty($email) && !empty($phone) && !empty($password)){
             
       // check if user email already exist
       if($rowCount > 0) {
           $email_exist = '
               <div class="alert alert-danger" role="alert">
                   User with email already exist!
-              </div>
-          ';
-      } else {
+              </div>';
+      }
+          if(!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
+            $fullNameErr = '<div class="alert alert-danger">
+                    Only letters and white space allowed.
+                </div>';
+        }
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = '<div class="alert alert-danger">
+                    Email format is invalid.
+                </div>';
+        }
+        if(!preg_match("/^[0-9]{10}+$/", $phone)) {
+            $phoneErr = '<div class="alert alert-danger">
+                    Only 10-digit mobile numbers allowed.
+                </div>';
+        }
+        if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $password)) {
+            $passwordErr = '<div class="alert alert-danger">
+                     Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
+                </div>';
+      } else {  */
           // clean the form data before sending to database
           $fullname = mysqli_real_escape_string($conn, $fullname);
           $username = mysqli_real_escape_string($conn, $username);
@@ -45,30 +64,8 @@
           $phone = mysqli_real_escape_string($conn, $phone);
           $password = mysqli_real_escape_string($conn, $password);
 
-          // perform validation
-          if(!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
-              $fullNameErr = '<div class="alert alert-danger">
-                      Only letters and white space allowed.
-                  </div>';
-          }
-          if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-              $emailErr = '<div class="alert alert-danger">
-                      Email format is invalid.
-                  </div>';
-          }
-          if(!preg_match("/^[0-9]{10}+$/", $phone)) {
-              $phoneErr = '<div class="alert alert-danger">
-                      Only 10-digit mobile numbers allowed.
-                  </div>';
-          }
-          if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $password)) {
-              $passwordErr = '<div class="alert alert-danger">
-                       Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
-                  </div>';
-          }
-          
           // Store the data in db, if all the preg_match condition met
-          if((preg_match("/^[a-zA-Z ]*$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
+          if((preg_match("/^[A-Za-z][A-Za-z0-9]{5,31}$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
            (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $password))){
 
               // Generate random activation token
@@ -124,8 +121,7 @@
                   }
               } */
           }
-      }
-  } else {
+  /*} else {
       if(empty($fullname)){
           $fullNameEmptyErr = '<div class="alert alert-danger">
               Full name can not be blank.
@@ -146,8 +142,8 @@
               Password can not be blank.
           </div>';
       }            
-  }
-    }
+  } 
+    } */
     header("Location:../app.html");
     // Close conn
     mysqli_close($conn);

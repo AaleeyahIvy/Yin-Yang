@@ -45,7 +45,7 @@
         <input type="password" id="password" name="password" placeholder="Create Password" required><br>
         <br>
         <label for="submit">Get Started!!!!</label>
-        <input class="submit" name="submit" type="submit" value="Sign Up">
+        <input class="submit" name="submit" type="submit" value="sign-up">
       </form>
     </div>
     <script>

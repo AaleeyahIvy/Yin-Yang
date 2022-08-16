@@ -6,8 +6,8 @@
         session_start();
     }
     $hostname = "localhost";
-    $username = "ADMIN";
-    $password = "Ilovepastel16!!";
+    $username = "root";
+    $password = "ilovepastel16!";
     $dbname = "users";
     
     $conn = mysqli_connect($hostname, $username, $password, $dbname) or die("Database connection not established.")
