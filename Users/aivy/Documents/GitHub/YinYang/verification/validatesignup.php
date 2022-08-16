@@ -7,6 +7,7 @@
 <body>
 <?php
     use Symfony\Component\Mailer\Mailer; 
+    use Symfony\Component\Mailer\Transport\Transport; 
     use Symfony\Component\Mailer\Transport\SendmailTransport; 
     use Symfony\Component\Mime\Email;
     include('../config/db.php');
@@ -89,16 +90,12 @@
 
               // Send verification email
               if($sqlQuery) {
-                  $msg = 'Click on the activation link to verify your email. <br><br>
-                    <a href="http://localhost/Github/Yin-Yang/Users/aivy/Documents/GitHub/YinYang/verification/user_verificaiton.php?token='.$token.'"> Click here to verify email</a>
-                  ';
-
                 $transport = new SendmailTransport(); 
                 $mailer = new Mailer($transport); 
                   
-                  $email = (new Email())
-                      ->from('hello@example.com')
-                      ->to('you@example.com')
+                  $email_ = (new Email())
+                      ->from('YinYangSends@gmail.com')
+                      ->to($email)
                       //->cc('cc@example.com')
                       //->bcc('bcc@example.com')
                       //->replyTo('fabien@example.com')
@@ -107,7 +104,7 @@
                       ->text('Sending emails is fun again!')
                       ->html('<p>See Twig integration for better HTML integration!</p>');
                   
-                  $mailer->send($email);
+                  $mailer->send($email_);
                     
                   if(!$result){
                       $email_verify_err = '<div class="alert alert-danger">
