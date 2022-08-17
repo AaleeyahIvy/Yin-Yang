@@ -109,7 +109,7 @@
   .change .menu2 {opacity: 0;}
   
   .change .menu3 {
-    transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-9px, -6px);
   }
   .headerbuttons{
     display: flex;
@@ -136,7 +136,7 @@
     border-radius: 25px;
    }
    #myLinks a{
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     list-style: none;
     padding: 15px;
