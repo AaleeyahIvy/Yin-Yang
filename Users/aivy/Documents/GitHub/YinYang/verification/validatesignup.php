@@ -91,7 +91,7 @@
               if($sqlQuery) {
                 $transport = Transport::fromDsn();
                 $mailer = new Mailer($transport); 
-                $dsn = 'smtp://user:pass@smtp.example.com:25';
+                $dsn = 'smtp://yin:yinyang19982002@smtp.yinyang.com:25';
                   $email_ = (new Email())
                       ->from('YinYangSends@gmail.com')
                       ->to($email)
