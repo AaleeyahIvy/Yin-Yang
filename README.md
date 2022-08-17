@@ -21,4 +21,5 @@ Technologies used:
   </tr>
 </table>
 <hr>
-To test out the app: https://yinyang-33041.web.app/
+To test out the app: https://yinyang-33041.web.app/ 
+If you want to test a specific page go to for example - https://yinyang-33041.web.app/app.html this will take you to the app page without having to sign up/login
