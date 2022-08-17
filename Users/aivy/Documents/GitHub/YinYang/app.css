@@ -96,7 +96,7 @@
     color: white;
   }
   .menu1, .menu2, .menu3{
-    width: 35px;
+    width: 20px;
     height: 5px;
     background-color: rgb(202, 202, 202);
     margin: 6px 0;
@@ -132,9 +132,20 @@
     text-decoration: none;
     list-style: none;
     display: none;
+    background-color: rgb(204, 204, 204);
+    border-radius: 25px;
    }
    #myLinks a{
-    padding: 10px;
-
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    padding: 15px;
+    margin: 25px;
    }
-   
+   #myLinks a:hover{
+    /*background-color: rgb(219, 219, 219);*/
+   }
+   .menu {
+    display: grid;
+    /*background-color: rgb(219, 219, 219);*/
+   }
