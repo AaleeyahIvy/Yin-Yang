@@ -55,16 +55,17 @@
   .app-container{
     min-height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     flex-wrap: wrap;
   }
   footer {
     display: flex;
     height:50px;
     background-color: #00b1dd;
-    border-radius: 55px;
+    border-radius: 25px;
     align-items: center;
     justify-content: space-around;
+    box-shadow: #083844;
   }
   .content {
     display: flex;
@@ -72,7 +73,7 @@
     padding-bottom: 50px;
     border-radius: 17px;
     background-color: white;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   .material-icons{
     border-radius: 55px;
