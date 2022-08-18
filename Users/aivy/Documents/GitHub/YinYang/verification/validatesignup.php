@@ -90,11 +90,11 @@
 
               // Send verification email
               if($sqlQuery) {
-                $transport = Transport::fromDsn('smtp://YinYangSends@gmail.com:yinyang19982002@default');
+                $transport = Transport::fromDsn('gmailer://aaleeyah:yinyang19982002@yinyangapp');
                 $mailer = new Mailer($transport); 
                   
                   $email_ = (new Email())
-                      ->from('YinYangSends@gmail.com')
+                      ->from('aaleeyah@yinyangapp.com')
                       ->to($email)
                       //->cc('cc@example.com')
                       //->bcc('bcc@example.com')
