@@ -6,10 +6,9 @@
 </head>
 <body>
 <?php
-    use Symfony\Component\Mailer\Mailer; 
-    use Symfony\Component\Mailer\Transport;
-    use Symfony\Component\Mailer\Transport\SendmailTransport; 
-    use Symfony\Component\Mime\Email;
+    use Symfony\Mailer\Mailer; 
+    use Symfony\Mailer\Bridge\Google\Transport;
+    use Symfony\Mime\Email;
     include('../config/db.php');
     require_once '../vendor/autoload.php';
     
@@ -90,10 +89,12 @@
 
               // Send verification email
               if($sqlQuery) {
-                $transport = Transport::fromDsn('gmailer://aaleeyah:yinyang19982002@yinyangapp');
+
+                $transport = Transport::fromDsn('smtp://aaleeyah:yinyang19982002@yinyangapp.com:25');
+
                 $mailer = new Mailer($transport); 
-                  
-                  $email_ = (new Email())
+                
+                  $email = (new Email())
                       ->from('aaleeyah@yinyangapp.com')
                       ->to($email)
                       //->cc('cc@example.com')
@@ -104,7 +105,7 @@
                       ->text('Sending emails is fun again!')
                       ->html('<p>See Twig integration for better HTML integration!</p>');
                   
-                  $mailer->send($email_);
+                  $mailer->send($email);
                     
                   if(!$result){
                       $email_verify_err = '<div class="alert alert-danger">

@@ -55,28 +55,29 @@
   .app-container{
     min-height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     flex-wrap: wrap;
   }
   footer {
     display: flex;
     height:50px;
-    background-color: #00b1dd;
-    border-radius: 55px;
+    background-color: #00b1dd5b;
+    border-radius: 25px;
     align-items: center;
     justify-content: space-around;
+    box-shadow: #00ccff;
   }
   .content {
     display: flex;
     padding: 20px;
     padding-bottom: 50px;
     border-radius: 17px;
-    background-color: white;
-    justify-content: space-around;
+    border: 3px solid white;
+    justify-content: space-evenly;
   }
   .material-icons{
     border-radius: 55px;
-    background-color: #33cff7;
+    background-color: #33d0f78e;
     size: 50px;
     color: white;
   }
@@ -88,7 +89,7 @@
     size: 100px;
     border:
     white;
-    background-color: #33cff7;
+    background-color: rgba(51, 51, 51, 0.219);
     border-radius: 10px;
     height: 25px;
   }
@@ -96,9 +97,9 @@
     color: white;
   }
   .menu1, .menu2, .menu3{
-    width: 35px;
+    width: 23px;
     height: 5px;
-    background-color: rgb(202, 202, 202);
+    background-color: rgb(255, 255, 255);
     margin: 6px 0;
     transition: 0.4s;
   }
@@ -109,7 +110,7 @@
   .change .menu2 {opacity: 0;}
   
   .change .menu3 {
-    transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-9px, -6px);
   }
   .headerbuttons{
     display: flex;
@@ -132,9 +133,22 @@
     text-decoration: none;
     list-style: none;
     display: none;
+    background-color: rgba(51, 51, 51, 0.219);
+    border-radius: 25px;
    }
    #myLinks a{
-    padding: 10px;
-
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    list-style: none;
+    padding: 15px;
+    margin: 25px;
+    font-size: medium;
    }
-   
+   #myLinks a:hover{
+    font-size: large;
+    transition: 0.4s;
+   }
+   .menu {
+    display: grid;
+    /*background-color: rgb(219, 219, 219);*/
+   }
