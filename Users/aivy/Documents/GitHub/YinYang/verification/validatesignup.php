@@ -6,9 +6,7 @@
 </head>
 <body>
 <?php
-    use Symfony\Mailer\Mailer; 
-    use Symfony\Mailer\Bridge\Google\Transport;
-    use Symfony\Mime\Email;
+    
     include('../config/db.php');
     require_once '../vendor/autoload.php';
     
@@ -89,34 +87,16 @@
 
               // Send verification email
               if($sqlQuery) {
-
-                $transport = Transport::fromDsn('smtp://aaleeyah:yinyang19982002@yinyangapp.com:25');
-
-                $mailer = new Mailer($transport); 
-                
-                  $email = (new Email())
-                      ->from('aaleeyah@yinyangapp.com')
-                      ->to($email)
-                      //->cc('cc@example.com')
-                      //->bcc('bcc@example.com')
-                      //->replyTo('fabien@example.com')
-                      //->priority(Email::PRIORITY_HIGH)
-                      ->subject('Time for Symfony Mailer!')
-                      ->text('Sending emails is fun again!')
-                      ->html('<p>See Twig integration for better HTML integration!</p>');
-                  
-                  $mailer->send($email);
-                    
-                  if(!$result){
-                      $email_verify_err = '<div class="alert alert-danger">
-                              Verification email coud not be sent!
-                      </div>';
-                  } else {
-                      $email_verify_success = '<div class="alert alert-success">
-                          Verification email has been sent!
-                      </div>';
-                  }
-              } 
+                $to_email = $email;
+                $subject = "Simple Email Test via PHP";
+                $body = "Hi,nn This is test email send by PHP Script";
+                $headers = "From: sender\'s email";
+                if(mail($to_email, $subject, $body, $headers)){
+                    echo 'Message sent to email!';
+              } else {
+                echo 'Message not sent to email!';
+              }
+            }
           //}
   /*} else {
       if(empty($fullname)){
@@ -141,7 +121,7 @@
       }            
   } 
     } */
-    header("Location:../app.html");
+    //header("Location:../app.html");
     // Close conn
     mysqli_close($conn);
     ?>
