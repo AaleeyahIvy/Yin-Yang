@@ -87,14 +87,14 @@
 
               // Send verification email
               if($sqlQuery) {
-                $to_email = $email;
+                $to = $email;
                 $subject = "Simple Email Test via PHP";
                 $body = "Hi,nn This is test email send by PHP Script";
                 $headers = "From: sender\'s email";
-                if(mail($to_email, $subject, $body, $headers)){
-                    echo 'Message sent to email!';
+                if(mail($to, $subject, $body, $headers)){
+                    echo "Message sent to $email";
               } else {
-                echo 'Message not sent to email!';
+                echo "Message not sent to $email";
               }
             }
           //}
