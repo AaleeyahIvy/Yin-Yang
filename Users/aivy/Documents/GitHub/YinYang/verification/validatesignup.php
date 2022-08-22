@@ -6,7 +6,8 @@
 </head>
 <body>
 <?php
-    
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
     include('../config/db.php');
     require_once '../vendor/autoload.php';
     
@@ -87,15 +88,25 @@
 
               // Send verification email
               if($sqlQuery) {
-                $to = $email;
-                $subject = "Simple Email Test via PHP";
-                $body = "Hi,nn This is test email send by PHP Script";
-                $headers = "From: sender\'s email";
-                if(mail($to, $subject, $body, $headers)){
-                    echo "Message sent to " . $email;
-              } else {
-                echo "Message not sent to " . $email;
-              }
+                $mail = new PHPMailer();
+$mail->isSMTP();
+$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+$mail->Host = 'smtp.gmail.com';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
+$mail->SMTPAuth = true;
+$mail->Username = 'aaleeyah@yinyangapp.com';
+$mail->Password = 'rrzsbwcsthgnqyhz';
+$mail->addReplyTo($email);
+$mail->addAddress($email);
+$mail->Subject = 'Email Verification Test';
+$mail->msgHTML('Yin Yang app has received your information and needs you to just simply verify your account. It is pretty easy...I think...click here!');
+$mail->AltBody = 'This is a plain-text message body';
+if (!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message was sent to ' . $email;
+}
             }
           //}
   /*} else {
