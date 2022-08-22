@@ -100,7 +100,7 @@ $mail->Password = 'rrzsbwcsthgnqyhz';
 $mail->addReplyTo($email);
 $mail->addAddress($email);
 $mail->Subject = 'Email Verification Test';
-$mail->msgHTML('Yin Yang app has received your information and needs you to just simply verify your account. It is pretty easy...I think...click here!');
+$mail->msgHTML(file_get_contents('welcome.html'));
 $mail->AltBody = 'This is a plain-text message body';
 if (!$mail->send()) {
     echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -132,7 +132,8 @@ if (!$mail->send()) {
       }            
   } 
     } */
-    //header("Location:../app.html");
+    //uncomment the header to show debugging page!!!
+    header("Location:../app.html?signedin");
     // Close conn
     mysqli_close($conn);
     ?>
