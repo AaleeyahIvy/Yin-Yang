@@ -10,7 +10,9 @@
     use PHPMailer\PHPMailer\SMTP;
     include('../config/db.php');
     require_once '../vendor/autoload.php';
-    
+
+    session_start();
+
     //Global messages for errors
     //global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
     //global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
@@ -25,7 +27,10 @@
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    
+    //Session variables
+    $_SESSION["username"] = $username;
+    $_SESSION["email"]= $email;
     //$email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     //$rowCount = mysqli_num_rows($email_check_query);
 
