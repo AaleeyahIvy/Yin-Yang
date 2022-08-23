@@ -100,7 +100,7 @@
                 $mail->addReplyTo($email);
                 $mail->addAddress($email);
                 $mail->Subject = 'Email Verification Test';
-                $mail->msgHTML(file_get_contents('welcome.html'));
+                $mail->msgHTML(file_get_contents('welcome.phtml'));
                 $mail->AltBody = 'This is a plain-text message body';
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
