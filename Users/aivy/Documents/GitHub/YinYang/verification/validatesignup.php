@@ -101,11 +101,18 @@
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'aaleeyah@yinyangapp.com';
-                $mail->Password = 'rrzsbwcsthgnqyhz'; //Set up 2-step authentication and use the app super password given by google admin 
+                $mail->Password = 'rrzsbwcsthgnqyhz'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
                 $mail->addReplyTo($email);
                 $mail->addAddress($email);
                 $mail->Subject = 'Email Verification Test';
-                $mail->msgHTML(file_get_contents('welcome.phtml'));
+                $mail->msgHTML('<html>
+                <body style="background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)">
+                    <h1>Welcome, ' . $username . '</h1>
+                    <p>Thanks for signing up to the yin yang app, we appreciate the support and hope you enjoy your stay.
+                        To get started please verify your email: yinyangapp.com/verify:token113242424
+                    </p>
+                </body>
+            </html>');
                 $mail->AltBody = 'This is a plain-text message body';
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
