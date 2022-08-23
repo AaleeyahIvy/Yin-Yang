@@ -85,29 +85,29 @@
               if(!$sqlQuery){
                   die("MySQL query failed!" . mysqli_error($conn));
               } 
-
+                
               // Send verification email
               if($sqlQuery) {
                 $mail = new PHPMailer();
-$mail->isSMTP();
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = 587;
-$mail->SMTPSecure = 'tls';
-$mail->SMTPAuth = true;
-$mail->Username = 'aaleeyah@yinyangapp.com';
-$mail->Password = 'rrzsbwcsthgnqyhz';
-$mail->addReplyTo($email);
-$mail->addAddress($email);
-$mail->Subject = 'Email Verification Test';
-$mail->msgHTML(file_get_contents('welcome.html'));
-$mail->AltBody = 'This is a plain-text message body';
-if (!$mail->send()) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message was sent to ' . $email;
-}
+                $mail->isSMTP();
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
+                $mail->SMTPSecure = 'tls';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'aaleeyah@yinyangapp.com';
+                $mail->Password = 'rrzsbwcsthgnqyhz'; //Set up 2-step authentication and use the app super password given by google admin 
+                $mail->addReplyTo($email);
+                $mail->addAddress($email);
+                $mail->Subject = 'Email Verification Test';
+                $mail->msgHTML(file_get_contents('welcome.html'));
+                $mail->AltBody = 'This is a plain-text message body';
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message was sent to ' . $email;
             }
+         }
           //}
   /*} else {
       if(empty($fullname)){
