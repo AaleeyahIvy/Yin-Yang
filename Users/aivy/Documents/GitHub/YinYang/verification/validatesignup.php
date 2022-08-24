@@ -107,13 +107,13 @@
                 $mail->Subject = 'Email Verification Test';
                 $mail->msgHTML('<html>
                 <body>
-                    <h1 style="background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%)"> Welcome, ' . $username . '</h1>
+                    <h1 style="background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%); test-align:center;"> Welcome, ' . $username . '</h1>
                     <p>Thanks for signing up to the yin yang app, we appreciate the support and hope you enjoy your stay.
                         To get started please verify your email: yinyangapp.com/verify:token113242424
                     </p>
                     <footer style="position:fixed; left:0; bottom:0; width:100%; text-align:center;">
-                    <div>Yin Yang App 2022</div>
-                    <div>Thank you for supporting</div>
+                    <div style="font-weight:bold"><a href="www.yinyangapp.com">Yin Yang App 2022</a></div>
+                    <div>Thank you for supporting us</div>
                     <div>Follow us on social media</div>
                     </footer>
                 </body>
