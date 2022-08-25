@@ -106,6 +106,7 @@
                 $mail->addAddress($email);
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
                 $mail->Subject = 'Email Verification Test';
+                $mail->isHTML(true);      
                 $mail->msgHTML('<html>
                 <body style="height: 600px; width:600px; margin:auto;">
                     <h1 style="background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%); text-align:center;"> Welcome, ' . $username . '</h1>
