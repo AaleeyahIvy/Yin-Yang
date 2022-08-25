@@ -14,7 +14,7 @@
   <svg class="black-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.34 83.34"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle cx="41.67" cy="41.67" r="41.67"/></g></g></svg>
   <svg class="white-yin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 499.99"><defs><style>.cls-1{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M251.62,0h-3.24C111.05.88,0,112.47,0,250S111.05,499.12,248.38,500A125,125,0,0,1,250,250,125,125,0,0,0,251.62,0ZM250,166.67A41.67,41.67,0,1,1,291.67,125,41.67,41.67,0,0,1,250,166.67Z"/></g></g></svg>
   <div class="col-12 headerbuttons">
-    <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
+    <div id="menu" class="col-1 menu">
       <div class="menu1"></div>
       <div class="menu2"></div>
       <div class="menu3"></div>
@@ -43,10 +43,11 @@
   </footer>
 </div>
 <script>
-  var path = anime.path('.cls-1');
+  var path = anime.path('svg path .white-yin path');
 
-anime({
-  targets: '.cls-1 ',
+anime.timeline({ loop: true })
+.add({
+  targets: '.white-yin path',
   translateX: path('x'),
   translateY: path('y'),
   rotate: path('angle'),
@@ -55,27 +56,5 @@ anime({
   loop: true
 });
 </script>
-<script>
-  var menu = document.getElementById("menu");
-  menu.addEventListener("click", menuList());
-  document.getElementById("date").innerHTML = showDate();
-  function showDate(){
-    var d = new Date(),
-    months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
-    days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-    return months[d.getMonth()]+' &#x262F; '+d.getDate()+' &#x262F; '+d.getFullYear();
-  }
-  function menuToggle(x) {
-  x.classList.toggle("change");
-  }
-  function menuList() {
-  var x = document.getElementById("myLinks");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-  </script>
 </body>
 </html>
