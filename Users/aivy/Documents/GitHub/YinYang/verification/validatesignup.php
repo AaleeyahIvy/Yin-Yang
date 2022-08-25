@@ -14,8 +14,8 @@
     session_start();
 
     //Global messages for errors
-    //global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
-    //global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
+    global $success_msg, $email_exist;
+    global $email_verify_err, $email_verify_success;
 
     //Empty before inserted
     //$username = $email = $phone = $password = "";
@@ -43,37 +43,23 @@
                   User with email already exist!
               </div>';
       }
-          if(!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
-            $fullNameErr = '<div class="alert alert-danger">
-                    Only letters and white space allowed.
-                </div>';
-        }
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = '<div class="alert alert-danger">
                     Email format is invalid.
                 </div>';
         }
-        if(!preg_match("/^[0-9]{10}+$/", $phone)) {
-            $phoneErr = '<div class="alert alert-danger">
-                    Only 10-digit mobile numbers allowed.
-                </div>';
-        }
-        if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $password)) {
-            $passwordErr = '<div class="alert alert-danger">
-                     Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
-                </div>';
-      } else {  */
           // clean the form data before sending to database
-          $fullname = mysqli_real_escape_string($conn, $fullname);
-          $username = mysqli_real_escape_string($conn, $username);
-          $email = mysqli_real_escape_string($conn, $email);
-          $phone = mysqli_real_escape_string($conn, $phone);
-          $password = mysqli_real_escape_string($conn, $password);
+          
 
           // Store the data in db, if all the preg_match condition met
           /*if((preg_match("/^[A-Za-z][A-Za-z0-9]{5,31}$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
            (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $password))){
 */
+            $fullname = mysqli_real_escape_string($conn, $fullname);
+            $username = mysqli_real_escape_string($conn, $username);
+            $email = mysqli_real_escape_string($conn, $email);
+            $phone = mysqli_real_escape_string($conn, $phone);
+            $password = mysqli_real_escape_string($conn, $password);
               // Generate random activation token
               $token = md5(rand().time());
 
@@ -105,7 +91,7 @@
                 $mail->addReplyTo('austin@yinyangapp.com');
                 $mail->addAddress($email);
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
-                $mail->Subject = 'Email Verification Test';
+                $mail->Subject = 'Email Verification';
                 $mail->isHTML(true);      
                 $mail->msgHTML('<html>
                 <body style="height: 600px; width:600px; margin:auto;">
@@ -118,7 +104,7 @@
                     <div style="font-weight:bold"><a href="www.yinyangapp.com">Yin Yang App 2022</a></div>
                     <div>Thank you for supporting us</div>
                     <div>Follow us on social media</div>
-                    <div><a href="www.github.com/yinyangapp">Our github repo!Github</a><a href="www.instagram.com/yinyangapp">Instagram</a></div>
+                    <div><a href="www.github.com/yinyangapp">Our github repo!Github</a> <a href="www.instagram.com/yinyangapp">Instagram</a></div>
                     <hr>
                     </footer>
                 </body>
@@ -130,30 +116,6 @@
                 echo 'Message was sent to ' . $email;
             }
          }
-          //}
-  /*} else {
-      if(empty($fullname)){
-          $fullNameEmptyErr = '<div class="alert alert-danger">
-              Full name can not be blank.
-          </div>';
-      }
-      if(empty($email)){
-          $emailEmptyErr = '<div class="alert alert-danger">
-              Email can not be blank.
-          </div>';
-      }
-      if(empty($phone)){
-          $mobileEmptyErr = '<div class="alert alert-danger">
-              Mobile number can not be blank.
-          </div>';
-      }
-      if(empty($password)){
-          $passwordEmptyErr = '<div class="alert alert-danger">
-              Password can not be blank.
-          </div>';
-      }            
-  } 
-    } */
     //uncomment the header to show debugging page!!!
     header("Location:../app.html?signedin");
     // Close conn
