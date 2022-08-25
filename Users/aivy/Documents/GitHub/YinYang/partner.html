@@ -11,10 +11,11 @@
     <title>Yin Yang App</title>
 </head>
 <body>
-  <svg class="black-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.34 83.34">
+  <svg class="black-circle" style="height:25%; width:25%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.34 83.34">
     <g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1">
+      
       <circle cx="41.67" cy="41.67" r="41.67"/></g></g></svg>
-  <svg class="white-yin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 499.99">
+  <svg class="white-yin" style="height:25%; width:25%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 499.99">
     <defs><style>.cls-1{fill:#fff;}</style></defs>
     <g id="Layer_2" data-name="Layer 2">
       <g id="Layer_1-2" data-name="Layer 1">
@@ -50,16 +51,15 @@
   </footer>
 </div>
 <script>
-  var path = anime.path('svg path .white-yin path');
+  var path = anime.path('.cls-1');
 
 anime.timeline({ loop: true })
 .add({
-  targets: '.white-yin path',
+  targets: '.black-circle',
   translateX: path('x'),
   translateY: path('y'),
-  rotate: path('angle'),
   easing: 'linear',
-  duration: 2000,
+  duration: 10000,
   loop: true
 });
 </script>
