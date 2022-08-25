@@ -104,6 +104,7 @@
                 $mail->Password = 'rrzsbwcsthgnqyhz'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
                 $mail->addReplyTo($email);
                 $mail->addAddress($email);
+                $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
                 $mail->Subject = 'Email Verification Test';
                 $mail->msgHTML('<html>
                 <body style="height: 600px; width:600px; margin:auto;">
@@ -112,9 +113,11 @@
                         To get started please verify your email: yinyangapp.com/verify:token113242424
                     </p>
                     <footer style="position:fixed; left:0; bottom:0; width:100%; text-align:center;">
+                    <hr>
                     <div style="font-weight:bold"><a href="www.yinyangapp.com">Yin Yang App 2022</a></div>
                     <div>Thank you for supporting us</div>
                     <div>Follow us on social media</div>
+                    <hr>
                     </footer>
                 </body>
             </html>');
