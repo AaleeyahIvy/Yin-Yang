@@ -1,0 +1,39 @@
+yinyangapp.com {
+reverse_proxy docker-php-apache-1:80
+}
+www.yinyangapp.com {
+reverse_proxy docker-php-apache-1:80
+}
+vflared.com {
+reverse_proxy docker-apache-1:8080
+}
+www.vflared.com {
+reverse_proxy docker-apache-1:8080
+}
+claydhd.me {
+reverse_proxy docker-nginx-1:8081
+}
+www.claydhd.me {
+reverse_proxy docker-nginx-1:8081
+}
+cloud.vflared.com {
+redir /.well-known/carddav /remote.php/carddav 301
+redir /.well-known/caldav /remote.php/caldav 301
+header Strict-Transport-Security max-age=31536000;
+reverse_proxy nextcloud:80
+}
+office.vflared.com {
+reverse_proxy nextcloud-collabora:9980
+}
+jelly.vflared.com {
+reverse_proxy jellyfin:8096
+}
+ping.vflared.com {
+reverse_proxy smokeping:80
+}
+it.vflared.com {
+reverse_proxy docker-apacheit-1:8083
+}
+stats.vflared.com {
+reverse_proxy docker-grafana-1:3000
+}

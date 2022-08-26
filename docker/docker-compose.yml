@@ -1,0 +1,251 @@
+version: '3.8'
+
+networks:
+ nextcloud:
+ httpd:
+ httpdit:
+ nginx:
+ jellyfin:
+ smokeping:
+ grafana:
+ db:
+ phpmyadmin:
+ php-apache:
+ composer:
+
+services:
+  caddy:
+    image: caddy
+    restart: unless-stopped
+    networks:
+      - nextcloud
+      - httpd
+      - httpdit
+      - nginx
+      - jellyfin
+      - smokeping
+      - grafana
+      - php-apache
+      - composer
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /home/recompiler/docker/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - /home/recompiler/docker/caddy/site:/srv
+      - /home/recompiler/docker/caddy/caddy_data:/data
+      - /home/recompiler/docker/caddy/caddy_config:/config
+  composer:
+    restart: 'no'
+    container_name: composer
+    image: composer:latest
+    command: install
+    command: composer require phpmailer/phpmailer
+    volumes:
+      - /home/recompiler/docker/php-apache/apache2/htdocs/public-html/:/app
+    networks:
+      - db
+      - phpmyadmin
+      - php-apache
+      - composer
+  db:
+    image: mariadb:latest
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: Ilovepastel16
+      MARIADB_USER: Narumii
+      MARIADB_PASSWORD: Ilovepastel16!
+    networks:
+      - db
+      - phpmyadmin
+      - php-apache
+      - composer
+#    ports:
+#      - ":"
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    networks:
+      - db
+      - phpmyadmin
+      - php-apache
+      - composer
+    ports:
+      - "8084:80"
+    environment:
+      - PMA_ARBITRARY=1
+  php-apache:
+    image: php:8.1-apache
+    restart: unless-stopped
+    networks:
+      - php-apache
+      - phpmyadmin
+      - db
+      - composer
+    ports:
+      - "8086:80"
+        #environment:
+      #- APACHE_DOCUMENT_ROOT /usr/local/apache2/htdocs/public-html/
+    volumes:
+      #- /home/recompiler/docker/php-apache/apache2/conf:/var/www
+      - /home/recompiler/docker/php-apache/apache2/htdocs/public-html:/var/www/html
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      - grafana
+  apache:
+    image: httpd:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - httpd
+    volumes:
+      - /home/recompiler/docker/httpd/apache2/htdocs:/usr/local/apache2/htdocs
+      - /home/recompiler/docker/httpd/apache2/conf:/usr/local/apache2/conf
+  apacheit:
+    image: httpd:latest
+    restart: unless-stopped
+    ports:
+      - "8083:8083"
+    networks:
+      - httpdit
+    volumes:
+      - /home/recompiler/docker/httpdit/apache2/htdocs:/usr/local/apache2/htdocs
+      - /home/recompiler/docker/httpdit/apache2/conf:/usr/local/apache2/conf
+      #      - /home/recompiler/docker/httpdit/apache2:/usr/local/apache2
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    networks:
+      - nginx
+    volumes:
+      - /home/recompiler/docker/nginx:/etc/nginx
+      - /home/recompiler/docker/nginx/html:/usr/share/nginx/html
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    networks:
+      - nextcloud
+    ports:
+      - "8082:80"
+    hostname: cloud.vflared.com
+    volumes:
+      - ${NEXTCLOUD_ROOT}/html:/var/www/html
+      - ${NEXTCLOUD_ROOT}/data:/srv/nextcloud/data
+      - ${NEXTCLOUD_ROOT}/config:/var/www/html/config
+      - ${NEXTCLOUD_ROOT}/apps:/var/www/html/custom_apps
+    extra_hosts:
+      - "${NEXTCLOUD_FQDN}:${NEXTCLOUD_IPADDRESS}"
+      - "${COLLABORA_FQDN}:${NEXTCLOUD_IPADDRESS}"
+    depends_on:
+      - mariadb
+      - redis
+    environment:
+      - NEXTCLOUD_TRUSTED_DOMAINS='${NEXTCLOUD_FQDN}'
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_HOST=nextcloud-mariadb
+      - REDIS_HOST=nextcloud-redis
+      - REDIS_HOST_PASSWORD=RKyZ9HU171o/yONFHiNoI1VyU8pi8IBi9aRYOWByZ7J1iLyjXV2vOeTQNU65mUpM/HCptTtOp37UbWtxYL870A
+#      - OBJECTSTORE_S3_HOST=us-southeast-1.linodeobjects.com
+#      - OBJECTSTORE_S3_BUCKET=this_bucket
+#      - OBJECTSTORE_S3_KEY=my_key
+#      - OBJECTSTORE_S3_SECRET=404_Not_Found
+#      - OBJECTSTORE_S3_PORT=443
+#      - OBJECTSTORE_S3_SSL=true
+#      - OBJECTSTORE_S3_REGION=us-southeast-1
+    restart: unless-stopped
+  mariadb:
+    image: mariadb
+    container_name: nextcloud-mariadb
+    restart: unless-stopped
+    volumes:
+      - ${NEXTCLOUD_ROOT}/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - nextcloud
+    command: ['--innodb_read_only_compressed=OFF']
+  redis:
+    image: redis
+    container_name: nextcloud-redis
+    networks:
+      - nextcloud
+    restart: unless-stopped
+    command: redis-server --requirepass RKyZ9HU171o/yONFHiNoI1VyU8pi8IBi9aRYOWByZ7J1iLyjXV2vOeTQNU65mUpM/HCptTtOp37UbWtxYL870A
+  coturn:
+    image: instrumentisto/coturn
+    container_name: nextcloud-coturn
+    restart: unless-stopped
+    ports:
+      - "3478:3478/tcp"
+      - "3478:3478/udp"
+    networks:
+      - nextcloud
+    command:
+      - -n
+      - --log-file=stdout
+      - --min-port=49160
+      - --max-port=49200
+      - --realm=${NEXTCLOUD_FQDN}
+      - --use-auth-secret
+      - --static-auth-secret=${COTURN_SECRET}
+  collabora:
+    image: collabora/code
+    container_name: nextcloud-collabora
+    restart: unless-stopped
+    hostname: office.vflared.com
+    networks:
+      - nextcloud
+    ports:
+      - "9980:9980"
+    extra_hosts:
+      - "${NEXTCLOUD_FQDN}:${NEXTCLOUD_IPADDRESS}"
+      - "${COLLABORA_FQDN}:${NEXTCLOUD_IPADDRESS}"
+    environment:
+      - 'domain=${NEXTCLOUD_FQDN}'
+      - 'dictionaries=en'
+    cap_add:
+      - MKNOD
+    tty: true
+  jellyfin:
+    image:  jellyfin/jellyfin:latest
+    container_name: jellyfin
+    ports:
+      - "8096:8096"
+    networks:
+      - jellyfin
+#    network_mode: "host"
+    volumes:
+      - /home/recompiler/docker/jelly/config:/config
+      - /home/recompiler/docker/jelly/cache:/cache
+      - /home/recompiler/docker/jelly/media:/media
+      - /home/recompiler/docker/jelly/media2:/media2:ro
+      - "/home/recompiler/Media Library/:/Media Library"
+    restart: "unless-stopped"
+  smokeping:
+    image: lscr.io/linuxserver/smokeping:latest
+    container_name: smokeping
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /home/recompiler/docker/smokeping/config:/config
+      - /home/recompiler/docker/smokeping/data>:/data
+    ports:
+      - "8085:80"
+    networks:
+      - smokeping
+    restart: unless-stopped
