@@ -115,7 +115,7 @@
             }
          }
     //uncomment the header to show debugging page!!!
-    header("Location:../app.html?signedin");
+    //header("Location:../app.html");
     // Close conn
     mysqli_close($conn);
     ?>
