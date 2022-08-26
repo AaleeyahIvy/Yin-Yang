@@ -85,7 +85,7 @@
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
                 $mail->Username = 'aaleeyah@yinyangapp.com';
-                $mail->Password = 'rrzsbwcsthgnqyhz'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
+                $mail->Password = 'dkopxyljgzbkoqlw'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
                 $mail->addReplyTo('austin@yinyangapp.com');
                 $mail->addAddress($email);
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
@@ -114,6 +114,7 @@
                 echo 'Message was sent to ' . $email;
             }
          }
+         //always use https://www.mail-tester.com to check emails that arent received :)
     //uncomment the header to show debugging page!!!
     //header("Location:../app.html");
     // Close conn
