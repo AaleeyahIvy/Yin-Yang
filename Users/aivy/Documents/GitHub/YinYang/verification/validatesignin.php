@@ -14,7 +14,7 @@
     $password = mysqli_real_escape_string($conn, $_REQUEST['password']); 
 
     //$conn = mysqli_connect($dbhost, $dbuser,$dbpass, $dbtable);
-    $sql = "SELECT * FROM users1 WHERE username = '$username' AND password ='$password'";
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password ='$password'";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
     if($count == 1) {

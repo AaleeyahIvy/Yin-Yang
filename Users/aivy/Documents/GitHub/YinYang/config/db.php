@@ -1,10 +1,10 @@
 <?php 
-    // Enable us to use Headers
+    /* Enable us to use Headers
     ob_start();
     // Set sessions
     if(!isset($_SESSION)) {
        session_start();
-    }
+    }*/
     $hostname = "ab459c5457bb";
     $username = "root";
     $password = "Ilovepastel16";

@@ -11,8 +11,6 @@
     include('../config/db.php');
     require_once '../vendor/autoload.php';
 
-    session_start();
-
     //Global messages for errors
     global $success_msg, $email_exist;
     global $email_verify_err, $email_verify_success;
@@ -67,7 +65,7 @@
               $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
               // Query
-              $sql = "INSERT INTO users1 (fullname, email, phone, username, password, token, is_active, date_time) 
+              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active, date_time) 
               VALUES ('{$fullname}', '{$email}', '{$phone}', '{$username}', '{$password_hash}', '{$token}', '0', now())";
               
               // Create mysql query
