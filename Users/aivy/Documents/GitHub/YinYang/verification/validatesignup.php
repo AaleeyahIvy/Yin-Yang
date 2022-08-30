@@ -1,3 +1,5 @@
+<?php session_start();
+header("Location:../app.html?signedIn");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,7 +118,7 @@
          }
          //always use https://www.mail-tester.com to check emails that arent received :)
     //uncomment the header to show debugging page!!!
-    //header("Location:../app.html");
+    header("Location:../app.html?signedIn");
     // Close conn
     mysqli_close($conn);
     ?>

@@ -1,11 +1,8 @@
 <?php 
-    // Enable us to use Headers
-    /*ob_start();
-    // Set sessions
-    if(!isset($_SESSION)) {
-       session_start();
-    }*/
-    $hostname = "78807bb1a715";
+    //enable headers
+    ob_start();
+
+    $hostname = "yinyangdb";
     $username = "root";
     $password = "Ilovepastel16";
     $dbname = "users";
