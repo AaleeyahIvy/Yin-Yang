@@ -31,18 +31,18 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ./caddy/site:/srv
-      - ./caddy/caddy_data:/data
-      - ./caddy/caddy_config:/config
+      - ./caddy/etc/caddy:/etc/caddy
+      - ./caddy/srv:/srv
+      - ./caddy/data:/data
+      - ./caddy/config:/config
   composer:
     restart: 'no'
     container_name: composer
     image: composer:latest
-    command: install
+    #command: install
     command: composer require phpmailer/phpmailer
     volumes:
-      - ./php-apache/apache2/htdocs/public-html/:/app
+      - ./php-apache/var/www/html/:/app
     networks:
       - db
       - phpmyadmin
@@ -77,8 +77,8 @@ services:
       - "8084:80"
     environment:
       - PMA_ARBITRARY=1
-    volumes:
-      - ./phpmyadmin/php/php.ini:/usr/local/etc/php/php.ini
+        #volumes:
+      #- ./phpmyadmin/usr/local/etc/php:/usr/local/etc/php
   php-apache:
     image: php:8.1-apache
     restart: unless-stopped
@@ -89,10 +89,10 @@ services:
       - composer
     ports:
       - "8086:80"
+        #environment:
     volumes:
       - ./php-apache/etc/apache2:/etc/apache2
-      - ./php-apache/apache2/htdocs/public-html:/var/www/html
-
+      - ./php-apache/var/www/html:/var/www/html
   grafana:
     image: grafana/grafana:latest
     restart: unless-stopped
@@ -108,8 +108,7 @@ services:
     networks:
       - httpd
     volumes:
-      - ./httpd/apache2/htdocs:/usr/local/apache2/htdocs
-      - ./httpd/apache2/conf:/usr/local/apache2/conf
+      - ./httpd/usr/local/apache2:/usr/local/apache2/
   apacheit:
     image: httpd:latest
     restart: unless-stopped
@@ -118,9 +117,7 @@ services:
     networks:
       - httpdit
     volumes:
-      - ./httpdit/apache2/htdocs:/usr/local/apache2/htdocs
-      - ./httpdit/apache2/conf:/usr/local/apache2/conf
-      #      - /home/recompiler/docker/httpdit/apache2:/usr/local/apache2
+      - ./httpdit/usr/local/apache2:/usr/local/apache2
   nginx:
     image: nginx:latest
     restart: unless-stopped
@@ -129,8 +126,8 @@ services:
     networks:
       - nginx
     volumes:
-      - ./nginx:/etc/nginx
-      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/etc/nginx:/etc/nginx
+      - ./nginx/usr/share/nginx/html:/usr/share/nginx/html
   nextcloud:
     image: nextcloud:latest
     container_name: nextcloud
@@ -246,7 +243,7 @@ services:
       - TZ=America/New_York
     volumes:
       - ./smokeping/config:/config
-      - ./smokeping/data>:/data
+      - ./smokeping/data:/data
     ports:
       - "8085:80"
     networks:
