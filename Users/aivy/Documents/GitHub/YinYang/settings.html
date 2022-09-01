@@ -27,12 +27,13 @@
   <!--Display date for app, we should track dates of messages, images, and posts added to app so they can browse those as memories-->
   <div class="col-12 content">
     <div class="col-12 settings">
-      <div class="soundSlider">Sound
+      <div class="soundSlider"><label>Sound</label>
         <input type="range" min="1" max="100" value="50" step="10" id="slider">
       </div>
-      <div class="displaySlider">Display
-        <input type="range" min="1" max="100" value="50" step="10" id="slider">
-        <input type="radio" id="displayMode">
+      <div class="displaySlider"><label for="display">Display</label>
+        <input type="range" min="1" max="100" value="50" step="10" id="slider" name="display">
+        <input type="radio" id="displayMode" name="lightMode">
+        <input type="radio" id="displayMode" name="darkMode">
       </div>
     </div>
   </div>
