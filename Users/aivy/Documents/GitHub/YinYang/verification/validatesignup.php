@@ -109,7 +109,7 @@ header("Location:../app.html?signedIn");?>
                     </footer>
                 </body>
             </html>');
-                $mail->AltBody = 'This is a plain-text message body';
+                $mail->AltBody = 'This message is written in HTML';
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
