@@ -26,7 +26,7 @@
                 <?php echo $activation_error; ?>
             </div>
             <p class="lead">If user account is verified then click on the following button to login.</p>
-            <a class="btn btn-lg btn-success" href="http://localhost/Github/Yin-Yang/Users/aivy/Documents/GitHub/YinYang/signin.php"
+            <a class="btn btn-lg btn-success" href="http://yinyangapp/signin.php"
                >Click to Login
             </a>
         </div>

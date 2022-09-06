@@ -1,3 +1,5 @@
+<?php session_start();
+header("Location:../app.html?signedIn");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +8,14 @@
 </head>
 <body>
 <?php
-    use Symfony\Component\Mailer\Mailer; 
-    use Symfony\Component\Mailer\Transport;
-    use Symfony\Component\Mime\Email;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
     include('../config/db.php');
     require_once '../vendor/autoload.php';
-    
+
     //Global messages for errors
-    //global $success_msg, $email_exist, $f_NameErr, $l_NameErr, $_emailErr, $_mobileErr, $_passwordErr;
-    //global $userNameEmptyErr, $emailEmptyErr, $phoneEmptyErr, $passwordEmptyErr, $email_verify_err, $email_verify_success;
+    global $success_msg, $email_exist;
+    global $email_verify_err, $email_verify_success;
 
     //Empty before inserted
     //$username = $email = $phone = $password = "";
@@ -26,7 +27,10 @@
     $phone = $_POST['phone'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-
+    
+    //Session variables
+    $_SESSION["username"] = $username;
+    $_SESSION["email"]= $email;
     //$email_check_query = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}' ");
     //$rowCount = mysqli_num_rows($email_check_query);
 
@@ -39,37 +43,23 @@
                   User with email already exist!
               </div>';
       }
-          if(!preg_match("/^[a-zA-Z ]*$/", $fullname)) {
-            $fullNameErr = '<div class="alert alert-danger">
-                    Only letters and white space allowed.
-                </div>';
-        }
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $emailErr = '<div class="alert alert-danger">
                     Email format is invalid.
                 </div>';
         }
-        if(!preg_match("/^[0-9]{10}+$/", $phone)) {
-            $phoneErr = '<div class="alert alert-danger">
-                    Only 10-digit mobile numbers allowed.
-                </div>';
-        }
-        if(!preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{6,20}$/", $password)) {
-            $passwordErr = '<div class="alert alert-danger">
-                     Password should be between 6 to 20 charcters long, contains atleast one special chacter, lowercase, uppercase and a digit.
-                </div>';
-      } else {  */
           // clean the form data before sending to database
-          $fullname = mysqli_real_escape_string($conn, $fullname);
-          $username = mysqli_real_escape_string($conn, $username);
-          $email = mysqli_real_escape_string($conn, $email);
-          $phone = mysqli_real_escape_string($conn, $phone);
-          $password = mysqli_real_escape_string($conn, $password);
+          
 
           // Store the data in db, if all the preg_match condition met
           /*if((preg_match("/^[A-Za-z][A-Za-z0-9]{5,31}$/", $username)) && (filter_var($email, FILTER_VALIDATE_EMAIL)) && (preg_match("/^[0-9]{10}+$/", $phone)) && 
            (preg_match("/^(?=.*\d)(?=.*[@#\-_$%^&+=§!\?])(?=.*[a-z])(?=.*[A-Z])[0-9A-Za-z@#\-_$%^&+=§!\?]{8,20}$/", $password))){
 */
+            $fullname = mysqli_real_escape_string($conn, $fullname);
+            $username = mysqli_real_escape_string($conn, $username);
+            $email = mysqli_real_escape_string($conn, $email);
+            $phone = mysqli_real_escape_string($conn, $phone);
+            $password = mysqli_real_escape_string($conn, $password);
               // Generate random activation token
               $token = md5(rand().time());
 
@@ -77,7 +67,7 @@
               $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
               // Query
-              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active, datetime) 
+              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active, date_time) 
               VALUES ('{$fullname}', '{$email}', '{$phone}', '{$username}', '{$password_hash}', '{$token}', '0', now())";
               
               // Create mysql query
@@ -86,60 +76,49 @@
               if(!$sqlQuery){
                   die("MySQL query failed!" . mysqli_error($conn));
               } 
-
+                
               // Send verification email
               if($sqlQuery) {
-                $transport = Transport::fromDsn();
-                $mailer = new Mailer($transport); 
-                $dsn = 'smtp://yin:yinyang19982002@smtp.yinyang.com:25';
-                  $email_ = (new Email())
-                      ->from('YinYangSends@gmail.com')
-                      ->to($email)
-                      //->cc('cc@example.com')
-                      //->bcc('bcc@example.com')
-                      //->replyTo('fabien@example.com')
-                      //->priority(Email::PRIORITY_HIGH)
-                      ->subject('Time for Symfony Mailer!')
-                      ->text('Sending emails is fun again!')
-                      ->html('<p>See Twig integration for better HTML integration!</p>');
-                  
-                  $mailer->send($email_);
-                    
-                  if(!$result){
-                      $email_verify_err = '<div class="alert alert-danger">
-                              Verification email coud not be sent!
-                      </div>';
-                  } else {
-                      $email_verify_success = '<div class="alert alert-success">
-                          Verification email has been sent!
-                      </div>';
-                  }
-              } 
-          //}
-  /*} else {
-      if(empty($fullname)){
-          $fullNameEmptyErr = '<div class="alert alert-danger">
-              Full name can not be blank.
-          </div>';
-      }
-      if(empty($email)){
-          $emailEmptyErr = '<div class="alert alert-danger">
-              Email can not be blank.
-          </div>';
-      }
-      if(empty($phone)){
-          $mobileEmptyErr = '<div class="alert alert-danger">
-              Mobile number can not be blank.
-          </div>';
-      }
-      if(empty($password)){
-          $passwordEmptyErr = '<div class="alert alert-danger">
-              Password can not be blank.
-          </div>';
-      }            
-  } 
-    } */
-    header("Location:../app.html");
+                $mail = new PHPMailer();
+                $mail->isSMTP();
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
+                $mail->SMTPSecure = 'tls';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'aaleeyah@yinyangapp.com';
+                $mail->Password = 'dkopxyljgzbkoqlw'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
+                $mail->addReplyTo('austin@yinyangapp.com');
+                $mail->addAddress($email);
+                $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
+                $mail->Subject = 'Email Verification';
+                $mail->isHTML(true);      
+                $mail->msgHTML('<html>
+                <body style="height: 600px; width:600px; margin:auto;">
+                    <h1 style="background-image:linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%); text-align:center;"> Welcome, ' . $username . '</h1>
+                    <p>Thanks for signing up to the yin yang app, we appreciate the support and hope you enjoy your stay.
+                        To get started please verify your email: yinyangapp.com/verify:token113242424
+                    </p>
+                    <footer style="position:fixed; left:0; bottom:0; width:100%; text-align:center;">
+                    <hr>
+                    <div style="font-weight:bold"><a href="www.yinyangapp.com">Yin Yang App 2022</a></div>
+                    <div>Thank you for supporting us</div>
+                    <div>Follow us on social media</div>
+                    <div><a href="www.github.com/yinyangapp">Our github repo!Github</a> <a href="www.instagram.com/yinyangapp">Instagram</a></div>
+                    <hr>
+                    </footer>
+                </body>
+            </html>');
+                $mail->AltBody = 'This message is written in HTML';
+            if (!$mail->send()) {
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message was sent to ' . $email;
+            }
+         }
+         //always use https://www.mail-tester.com to check emails that arent received :)
+    //uncomment the header to show debugging page!!!
+    header("Location:../app.html?signedIn");
     // Close conn
     mysqli_close($conn);
     ?>

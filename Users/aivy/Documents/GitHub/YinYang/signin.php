@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +21,7 @@ if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
     $isSuccess = 0;
     $conn = mysqli_connect("localhost", "root", "", "user_authentication");
     $userName = $_POST['userName'];
-    $sql = "SELECT * FROM users WHERE username= ?";
+    $sql = "SELECT * FROM users1 WHERE username= ?";
     $statement = $conn->prepare($sql);
     $statement->bind_param('s', $username);
     $statement->execute();
