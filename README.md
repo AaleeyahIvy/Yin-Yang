@@ -26,11 +26,11 @@ Technologies used:
   <tr>
   </tr>
 </table>
-<hr>
+
 To test out the app: https://yinyangapp.com 
 Current features:
-- Sign-Up / Login
-- Welcome email
-- App Page with menu
-- Test pages
-- Home screen
+* Sign-Up / Login
+* Welcome email
+* App Page with menu
+* Test pages
+* Home screen
