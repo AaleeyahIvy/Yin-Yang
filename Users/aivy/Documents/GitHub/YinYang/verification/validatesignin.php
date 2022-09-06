@@ -23,7 +23,6 @@
         header("Location:app.html");
     
     } else {
-
         echo "Wrong Username or Password";
         // redirect to login page
         header("Location:signin.php?msg=failed");
