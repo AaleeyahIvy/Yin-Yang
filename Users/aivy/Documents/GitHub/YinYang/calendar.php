@@ -1,9 +1,15 @@
+<?php 
+$calendar = $service->calendars->get('primary');
+
+echo $calendar->getSummary();
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://www.googleapis.com/calendar/v3/calendars/calendarId">
     <link rel="stylesheet" href="app.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +33,7 @@
   <!--Display date for app, we should track dates of messages, images, and posts added to app so they can browse those as memories-->
   <div class="col-12 content">
     <div class="col-8 main">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet.
-       Massa placerat duis ultricies lacus. Venenatis urna cursus eget nunc. Vel turpis nunc eget lorem dolor sed viverra ipsum. 
-       Integer feugiat scelerisque varius morbi enim nunc faucibus a pellentesque. Mattis enim ut tellus elementum sagittis vitae. 
-       Sed cras ornare arcu dui vivamus arcu felis bibendum ut. Massa enim nec dui nunc. Adipiscing elit pellentesque habitant morbi tristique senectus et netus et.
-        Nisl vel pretium lectus quam id leo in vitae turpis. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing. 
-        Habitasse platea dictumst vestibulum rhoncus. Aliquet nec ullamcorper sit amet. Elementum pulvinar etiam non quam lacus. 
-        Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Quam viverra orci sagittis eu volutpat odio. 
-      Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Morbi tristique senectus et netus et malesuada fames ac turpis.
+      
     </div>
   </div>
   <footer class="col-4">
