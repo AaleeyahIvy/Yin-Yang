@@ -1,8 +1,3 @@
-<?php 
-$calendar = $service->calendars->get('primary');
-
-echo $calendar->getSummary();
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +11,11 @@ echo $calendar->getSummary();
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
+<?php 
+$calendar = $service->calendars->get('primary');
+
+echo $calendar->getSummary();
+?>
 <body>
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
