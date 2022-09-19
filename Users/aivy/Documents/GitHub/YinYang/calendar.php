@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8" />
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,11 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
-<?php 
-$calendar = $service->calendars->get('primary');
-
-echo $calendar->getSummary();
-?>
 <body>
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
@@ -33,11 +29,9 @@ echo $calendar->getSummary();
   <!--Display date for app, we should track dates of messages, images, and posts added to app so they can browse those as memories-->
   <div class="col-12 content">
     <div class="col-8 main">
-      
     </div>
   </div>
   <footer class="col-4">
-   
   </footer>
 </div>
 <script>
