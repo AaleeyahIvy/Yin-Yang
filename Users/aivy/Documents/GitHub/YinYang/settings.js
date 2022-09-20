@@ -24,3 +24,7 @@ function changeBackground(){
         const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
         document.body.style.backgroundColor = randomColor;
     }
+function setBackground(){
+    changeBackground();
+    document.body.style.backgroundColor = randomColor;
+}

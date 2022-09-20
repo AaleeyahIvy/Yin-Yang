@@ -11,7 +11,7 @@
     <script src="settings.js" defer></script>
     <title>Yin Yang App</title>
 </head>
-<body onload="">
+<body onload="setBackground(session[backgroundcolor])"> <!--We need to get the value from the settings page to adjust color for all pages-->
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
       <div class="menu1"></div>
