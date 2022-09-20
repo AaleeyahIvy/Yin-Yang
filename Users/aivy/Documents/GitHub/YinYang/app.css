@@ -49,7 +49,7 @@
       font-family: 'Thasadith', sans-serif;
       font-size: large;
       font-weight: 800;
-      background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+      background-color: rgb(110, 119, 119);
     
   }
   .app-container{
