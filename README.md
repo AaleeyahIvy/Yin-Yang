@@ -10,6 +10,7 @@ Technologies used:
     <td>Hosting & Webservers:</td>
     <td>Firebase</td>
     <td>Apache</td>
+    <td>Nginx</td>
   </tr>
   <tr>
     <td>Langauges:</td>
@@ -19,10 +20,11 @@ Technologies used:
     <td>Anime.js</td>
     <td>PHP</td>
     <td>ASP.NET</td>
+    <td>Laravel</td>
   </tr>
     <td>Packages/Frameworks:</td>
     <td>PHPMailer</td>
-    <td></td>
+    <td>Composer</td>
   <tr>
   </tr>
 </table>
