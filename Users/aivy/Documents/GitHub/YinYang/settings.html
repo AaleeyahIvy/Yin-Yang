@@ -11,7 +11,7 @@
     <script src="settings.js" defer></script>
     <title>Yin Yang App</title>
 </head>
-<body>
+<body onload="">
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
       <div class="menu1"></div>
@@ -33,11 +33,8 @@
       </div>
       <div class="displaySlider"><label for="display">Display</label>
         <input type="range" min="1" max="100" value="50" step="10" id="slider" name="display">
-        <input type="radio" id="displayMode" name="lightMode">
-        <input type="radio" id="displayMode" name="darkMode">
         <br>
         <button onclick="changeBackground()" id="backgroundBtn" style="height:50px; width:100px;"></button>
-  
       </div>
     </div>
   </div>
