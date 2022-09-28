@@ -23,5 +23,5 @@
 ?>
 <!DOCTYPE html>
 <html>
-    
+    <p>Message Sent...!</p>
 </html>
