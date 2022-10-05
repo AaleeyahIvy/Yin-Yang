@@ -7,7 +7,7 @@
 </head>
 <body>
 <?php
-    use PHPMailer\PHPMailer
+    use PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     include('../config/db.php');
     require_once '../vendor/autoload.php';
