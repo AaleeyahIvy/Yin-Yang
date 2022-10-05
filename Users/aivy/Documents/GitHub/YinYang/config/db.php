@@ -5,7 +5,7 @@
     $hostname = "yinyangdb";
     $username = "root";
     $password = "Ilovepastel16";
-    $dbname = "users";
+    $dbname = "Test";
     
     $conn = mysqli_connect($hostname, $username, $password, $dbname) or die("Database connection not established.");
 ?>
