@@ -66,7 +66,7 @@
               $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
               // Query
-              $sql = "INSERT INTO Test (fullname, email, phone, username, password, token, is_active, date_time) 
+              $sql = "INSERT INTO users (fullname, email, phone, username, password, token, is_active, date_time) 
               VALUES ('{$fullname}', '{$email}', '{$phone}', '{$username}', '{$password_hash}', '{$token}', '0', now())";
               
               // Create mysql query
