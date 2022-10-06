@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php session_start();
+header("Location:../app.html?signedIn");
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +9,13 @@
 </head>
 <body>
 <?php
-    use PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;
-    include('../config/db.php');
+    require '../vendor/PHPMailer/src/Exception.php';
+    require '../vendor/PHPMailer/src/PHPMailer.php';
+    require '../vendor/PHPMailer/src/SMTP.php';
+    require('../config/db.php');
     require_once '../vendor/autoload.php';
 
     //Global messages for errors
