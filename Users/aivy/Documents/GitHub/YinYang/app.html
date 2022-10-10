@@ -30,11 +30,11 @@
   <div class="col-12 content">
     <div class="col-3 sidebar">
       <div id="friends-list">
+      <input type="text" id="addFriend" placeholder="Enter friend name...">
+      <button onclick="addFriend()" class="addBtn">Add</button>
       <div id="friend">Friend 1</div>
       <div id="friend">Friend 2</div>
       <div id="friend">Friend 3</div>
-      <input type="text" id="addFriend" placeholder="Enter friend name...">
-      <div onclick="addFriend()" class="addBtn">Add</div>
       </div>
     </div>
     <div class="col-8 main">
@@ -73,7 +73,7 @@
   </script>
   <script>
     function addFriend(){
-      var friend = document.createElement("friend");
+      var friend = document.createElement("div");
       var friendValue = document.getElementById("addFriend").value;
       var value = document.createTextNode(friendValue);
       friend.appendChild(value);
