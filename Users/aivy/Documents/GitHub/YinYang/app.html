@@ -29,9 +29,13 @@
   <!--Display date for app, we should track dates of messages, images, and posts added to app so they can browse those as memories-->
   <div class="col-12 content">
     <div class="col-3 sidebar">
+      <div id="friends-list">
       <div id="friend">Friend 1</div>
       <div id="friend">Friend 2</div>
       <div id="friend">Friend 3</div>
+      <input type="text" id="addFriend" placeholder="Enter friend name...">
+      <div onclick="addFriend()" class="addBtn">Add</div>
+      </div>
     </div>
     <div class="col-8 main">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sodales ut etiam sit amet.
@@ -66,6 +70,20 @@
     x.style.display = "none";
   }
 }
+  </script>
+  <script>
+    function addFriend(){
+      var friend = document.createElement("friend");
+      var friendValue = document.getElementById("addFriend").value;
+      var value = document.createTextNode(friendValue);
+      friend.appendChild(value);
+      if(friendValue===""){
+        alert("Don't you want to add a friend?");
+      } else {
+        document.getElementById("friends-list").appendChild(friend);
+      }
+      document.getElementById(friendValue).value = "";
+    }
   </script>
 </body>
 </html>
