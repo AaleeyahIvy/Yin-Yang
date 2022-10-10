@@ -8,9 +8,11 @@ Technologies used:
 <table>
   <tr>
     <td>Hosting & Webservers:</td>
-    <td>Firebase</td>
+    <td>*Firebase</td>
     <td>Apache</td>
     <td>Nginx</td>
+    <td>Docker</td>
+    <td>Kubernetes</td>
   </tr>
   <tr>
     <td>Langauges:</td>
