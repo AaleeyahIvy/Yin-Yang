@@ -5,6 +5,9 @@
     require '../vendor/PHPMailer/src/SMTP.php';
     //require('../config/db.php');
     require '../vendor/autoload.php';
+    
+    $email = $_POST['email'];
+    $inquiry = $_POST['inquiry'];
 
     $mail = new PHPMailer();
                 $mail->isSMTP();
