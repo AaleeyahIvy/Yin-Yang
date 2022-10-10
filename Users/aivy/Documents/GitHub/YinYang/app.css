@@ -154,3 +154,9 @@
     display: grid;
     /*background-color: rgb(219, 219, 219);*/
    }
+   #friend{
+    padding: 25px;
+   }
+   #friend:hover{
+    background-color: aliceblue;
+   }
