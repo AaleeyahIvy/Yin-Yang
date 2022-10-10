@@ -1,6 +1,9 @@
 <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
+    require '../vendor/PHPMailer/src/PHPMailer.php';
+    require '../vendor/PHPMailer/src/SMTP.php';
+    //require('../config/db.php');
     require '../vendor/autoload.php';
 
     $mail = new PHPMailer();
