@@ -11,6 +11,7 @@ Technologies used:
     <td>*Firebase</td>
     <td>Apache</td>
     <td>Nginx</td>
+    <td>***(Containers)***</td>
     <td>Docker</td>
     <td>Kubernetes</td>
   </tr>
