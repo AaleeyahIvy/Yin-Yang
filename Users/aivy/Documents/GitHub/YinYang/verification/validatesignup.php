@@ -91,9 +91,6 @@ header("Location:../app.html?signedIn");
                 $mail->Port = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
-                $mail->Username = 'aaleeyah@yinyangapp.com';
-                $mail->Password = 'dkopxyljgzbkoqlw'; //Set up 2-step authentication and use the app super password given by google admin //remember to hide this when published to github
-                $mail->addReplyTo('austin@yinyangapp.com');
                 $mail->addAddress($email);
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
                 $mail->Subject = 'Email Verification';
