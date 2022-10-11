@@ -98,11 +98,16 @@
       if(friendValue===""){
         alert("Don't you want to add a friend?");
       } else {
-        //document.getElementById("friends-list").appendChild(friend);
-        localStorage.setItem('friend', document.getElementById("friends-list").appendChild(friend).innerText);
+        if (window.localStorage){
+        var friend = document.getElementById("friends-list").appendChild(friend);//Add friend to friends-list
+        friend.value = localStorage.getItem('friend');
+        friend.addEventListener('input',function(){//Data Saved
+          localStorage.setItem('friend',friend.value)
+        }, false);
+      }
         console.log(localStorage.getItem('friend'));
       }
-      document.getElementById(addFriend).value = " ";
+      document.getElementById(addFriend).value = " ";//null
 
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
