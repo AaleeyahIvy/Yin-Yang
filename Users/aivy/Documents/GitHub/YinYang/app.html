@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +49,7 @@ session_start();
     </div>
   </div>
 </div>
-<script>
+<script> //CREATE JS FILES, THESE SCRIPTS ARE TOO BIG!!
   var menu = document.getElementById("menu");
   menu.addEventListener("click", menuList());
   document.getElementById("date").innerHTML = showDate();
@@ -101,7 +98,7 @@ session_start();
       if(friendValue===""){
         alert("Don't you want to add a friend?");
       } else {
-        document.getElementById("friends-list").appendChild(friend);
+        //document.getElementById("friends-list").appendChild(friend);
         localStorage.setItem('friend', document.getElementById("friends-list").appendChild(friend).innerText);
         console.log(localStorage.getItem('friend'));
       }
