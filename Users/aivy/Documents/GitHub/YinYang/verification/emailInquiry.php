@@ -15,8 +15,6 @@
                 $mail->Host = 'smtp.gmail.com';
                 $mail->Port = 587;
                 $mail->CharSet = PHPMailer::CHARSET_UTF8;
-                $mail->Username = 'aaleeyah@yinyangapp.com';
-                $mail->Password = 'dkopxyljgzbkoqlw';
                 $mail->addReplyTo($_POST['email']);
                 $mail->addAddress('austin@yinyangapp.com');
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
