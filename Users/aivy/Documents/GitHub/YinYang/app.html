@@ -76,6 +76,7 @@ session_start();
   </script>
   <script> //This does not save when changing pages, learn how to keep session information.
     var nodeList = document.getElementsByClassName("friends");
+    var i;
     for (i = 0; i < nodeList.length; i++) {
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
@@ -104,7 +105,7 @@ session_start();
         localStorage.setItem('friend', document.getElementById("friends-list").appendChild(friend).innerText);
         console.log(localStorage.getItem('friend'));
       }
-      document.getElementById(addFriend).value = "";
+      document.getElementById(addFriend).value = " ";
 
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
