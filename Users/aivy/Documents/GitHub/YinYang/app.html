@@ -35,9 +35,9 @@ session_start();
       <div id="friends-list">
       <input type="text" id="addFriend" placeholder="Enter friend name...">
       <button onclick="addFriend()" class="addBtn">Add</button>
-      <div id="friend">Friend 1</div>
-      <div id="friend">Friend 2</div>
-      <div id="friend">Friend 3</div>
+      <div class="friends" id="friend">Friend 1</div>
+      <div class="friends" id="friend">Friend 2</div>
+      <div class="friends" id="friend">Friend 3</div>
       </div>
     </div>
     <div class="col-8 main">
@@ -75,8 +75,7 @@ session_start();
 }
   </script>
   <script> //This does not save when changing pages, learn how to keep session information.
-    var nodeList = document.getElementsByTagName("div");
-    nodeList.setAttribute('id','friend');
+    var nodeList = document.getElementsByClassName("friends");
     for (i = 0; i < nodeList.length; i++) {
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
@@ -105,7 +104,8 @@ session_start();
         localStorage.setItem('friend', document.getElementById("friends-list").appendChild(friend).innerText);
         console.log(localStorage.getItem('friend'));
       }
-      document.getElementById(friendValue).value = "";
+      document.getElementById(addFriend).value = "";
+
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
       span.className = "close";
