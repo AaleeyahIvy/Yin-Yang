@@ -66,3 +66,5 @@ node_modules/
 .env
 config/db.php
 Users/aivy/Documents/GitHub/YinYang/config/db.php
+docker/Caddyfile
+docker/docker-compose.yml
