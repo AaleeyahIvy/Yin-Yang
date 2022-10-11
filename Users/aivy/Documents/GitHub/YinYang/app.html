@@ -92,6 +92,7 @@
     function addFriend(){ //add friend then store information in local storage
       var friend = document.createElement("div");
       friend.setAttribute('id','friend');
+      friend.setAttribute('class', 'friends');
       var friendValue = document.getElementById("addFriend").value;
       var value = document.createTextNode(friendValue);
       friend.appendChild(value);
@@ -105,15 +106,15 @@
           localStorage.setItem('friend',friend.value)
         }, false);
       }
-        console.log(localStorage.getItem('friend'));
+        console.log(Object.keys(localStorage));
       }
-      document.getElementById(addFriend).value = " ";//null
+      document.getElementById('addFriend').value = "";//null
 
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");
       span.className = "close";
       span.appendChild(txt);
-      div.appendChild(span);
+      friend.appendChild(span);
 
       for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
