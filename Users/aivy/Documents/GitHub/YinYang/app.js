@@ -1,16 +1,4 @@
-var menu = document.getElementById("menu");
-menu.addEventListener("click", menuList());
-    function menuToggle(x) {
-    x.classList.toggle("change");
-    }
-    function menuList() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-   }
+
 //This does not save when changing pages, learn how to keep session information.
     var nodeList = document.getElementsByClassName("friends");
     var i;
@@ -47,16 +35,9 @@ menu.addEventListener("click", menuList());
       if(friendValue===""){
         alert("Don't you want to add a friend?");
       } else {
-        if (window.localStorage){
-        var friend = document.getElementById("friends-list").appendChild(friend);//Add friend to friends-list
-        friend.value = localStorage.getItem('friend');
-        friend.addEventListener('input',function(){//Data Saved
-          localStorage.setItem('friend',friend.value)
-        }, false);
+        document.getElementById("friends-list").appendChild(friend);//Add friend to friends-list
       }
-        console.log(localStorage.getItem('friend'));
-      }
-      document.getElementById('addFriend').value = "";//null
+        document.getElementById('addFriend').value = "";//null
   
       var span = document.createElement("SPAN");
       var txt = document.createTextNode("\u00D7");

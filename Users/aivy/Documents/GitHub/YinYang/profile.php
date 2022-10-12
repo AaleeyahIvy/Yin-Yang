@@ -67,5 +67,19 @@ mysqli_close($conn);
 </div>
   </div>
 </div>
+<script>
+    var menu = document.getElementById("menu");
+menu.addEventListener("click", menuList());
+    function menuToggle(x) {
+    x.classList.toggle("change");
+    }
+    function menuList() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+   }</script>
 </body>
 </html>
