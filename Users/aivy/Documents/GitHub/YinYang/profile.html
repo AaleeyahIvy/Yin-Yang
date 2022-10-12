@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Thasadith&display=swap" rel="stylesheet">
     <title>Yin Yang App</title>
 </head>
-<body>
+<body onload="showFriends()">
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
       <div class="menu1"></div>
@@ -30,7 +30,14 @@
     <div class="profile">
     <p>PROFILE IMAGE</p>
     <p>NAME</p>
-    <p>FRIENDS</p>
+    <p onclick="addFriend()">FRIENDS</p>
+    <div id="friends-list">
+      <input type="text" id="addFriend" placeholder="Enter friend name...">
+      <button onclick="addFriend()" class="addBtn">Add</button>
+      <div class="friends" id="friend">Friend 1</div>
+      <div class="friends" id="friend">Friend 2</div>
+      <div class="friends" id="friend">Friend 3</div>
+      </div>
     <p>PUBLIC GROUPS</p>
     <p>PRIVATE GROUPS</p>
 </div>
@@ -50,6 +57,68 @@
     x.style.display = "none";
   }
  }
+</script>
+<script> //This does not save when changing pages, learn how to keep session information.
+  var nodeList = document.getElementsByClassName("friends");
+  var i;
+  for (i = 0; i < nodeList.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  nodeList[i].appendChild(span);
+}
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+close[i].onclick = function() {
+  var div = this.parentElement;
+  div.style.display = "none";
+}
+}
+  function addFriend(){ //add friend then store information in local storage
+    var friend = document.createElement("div");
+    friend.setAttribute('id','friend');
+    friend.setAttribute('class', 'friends');
+    var friendValue = document.getElementById("addFriend").value;
+    var value = document.createTextNode(friendValue);
+    friend.appendChild(value);
+    if(friendValue===""){
+      alert("Don't you want to add a friend?");
+    } else {
+      if (window.localStorage){
+      var friend = document.getElementById("friends-list").appendChild(friend);//Add friend to friends-list
+      friend.value = localStorage.getItem('friend');
+      friend.addEventListener('input',function(){//Data Saved
+        localStorage.setItem('friend',friend.value)
+      }, false);
+    }
+      console.log(localStorage.getItem('friend'));
+    }
+    document.getElementById('addFriend').value = "";//null
+
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    friend.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+    }
+  }
+}
+function showFriends(){
+  let friend = localStorage.getItem("friend");
+  if(friend=""){
+    alert("Test friends are being shown, not user input friends!")
+}else {
+  document.getElementById("friends-list").appendChild(friend.value);
+}
+}
+  
 </script>
 </body>
 </html>
