@@ -68,3 +68,6 @@ config/db.php
 Users/aivy/Documents/GitHub/YinYang/config/db.php
 docker/Caddyfile
 docker/docker-compose.yml
+verification/validatesignup.php
+verification/validatesignin.php
+verification/emailInquiry.php
