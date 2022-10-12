@@ -91,8 +91,6 @@ header("Location:../app.html?signedIn");
                 $mail->Port = 587;
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
-                $mail->Username = "aaleeyah@yinyangapp.com";
-                $mail->Password = "kjypuejrooikyrsn";
                 $mail->addAddress($email);
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
                 $mail->Subject = 'Email Verification';
