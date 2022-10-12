@@ -66,13 +66,6 @@ node_modules/
 .env
 config/db.php
 Users/aivy/Documents/GitHub/YinYang/config/db.php
-docker/Caddyfile
-docker/docker-compose.yml
-verification/validatesignup.php
-verification/validatesignin.php
-verification/emailInquiry.php
 Users/aivy/Documents/GitHub/YinYang/verification/emailInquiry.php
 Users/aivy/Documents/GitHub/YinYang/verification/validatesignin.php
-Users/aivy/Documents/GitHub/YinYang/verification/validatesignup.php
-Users/aivy/Documents/GitHub/YinYang/verification/emailInquiry.php
 Users/aivy/Documents/GitHub/YinYang/verification/validatesignup.php
