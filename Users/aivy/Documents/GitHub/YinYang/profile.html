@@ -75,7 +75,7 @@ close[i].onclick = function() {
   var div = this.parentElement;
   div.style.display = "none";
 }
-}
+} //SELECT f.*, u.username FROM users u INNER JOIN ( SELECT userID, friendID FROM friends WHERE userID = 1 UNION SELECT friendID, userID FROM friends WHERE friendID = 1 ) f ON f.friendID = u.id; 
   function addFriend(){ //add friend then store information in local storage
     var friend = document.createElement("div");
     friend.setAttribute('id','friend');
