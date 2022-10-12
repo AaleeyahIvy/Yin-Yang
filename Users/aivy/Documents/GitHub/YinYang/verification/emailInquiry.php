@@ -16,8 +16,6 @@
                 $mail->Port = 587;
                 $mail->CharSet = PHPMailer::CHARSET_UTF8;
                 $mail->addReplyTo($_POST['email']);
-                $mail->Username = "aaleeyah@yinyangapp.com";
-                $mail->Password = "kjypuejrooikyrsn";
                 $mail->addAddress('austin@yinyangapp.com');
                 $mail->setFrom('aaleeyah@yinyangapp.com', 'Yin Yang Admin/Developer');
                 $mail->Subject = 'YinYang Inquiry';
