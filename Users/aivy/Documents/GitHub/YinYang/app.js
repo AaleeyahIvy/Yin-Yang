@@ -1,6 +1,5 @@
-
-    var menu = document.getElementById("menu");
-    menu.addEventListener("click", menuList());
+var menu = document.getElementById("menu");
+menu.addEventListener("click", menuList());
     function menuToggle(x) {
     x.classList.toggle("change");
     }
@@ -71,13 +70,5 @@
       div.style.display = "none";
       }
     }
-  }
-  function showFriends(){
-    let friend = localStorage.getItem("friend");
-    if(friend=""){
-      alert("Test friends are being shown, not user input friends!")
-  }else {
-    document.getElementById("friends-list").appendChild(friend.value);
-  }
   }
   
