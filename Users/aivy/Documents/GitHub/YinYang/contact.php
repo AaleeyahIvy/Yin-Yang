@@ -17,7 +17,7 @@ session_start();
   <nav class="col-12 nav">
       <a href=index.html>Home</a>
       <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.php">Contact</a>
       <a href="signin.php">Sign In</a>
     </nav>
 <div id="loader">
