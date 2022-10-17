@@ -57,10 +57,6 @@ mysqli_close($conn);
             <?php
                 }
             ?>
-      <div class="friends" id="friend">Friend 1</div>
-      <div class="friends" id="friend">Friend 2</div>
-      <div class="friends" id="friend">Friend 3</div>
-
       </div>
     <p>PUBLIC GROUPS</p>
     <p>PRIVATE GROUPS</p>
