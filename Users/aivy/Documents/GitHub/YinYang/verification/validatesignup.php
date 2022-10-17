@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 header("Location:../app.html?signedIn");
 ?>
 <!DOCTYPE html>

@@ -14,7 +14,7 @@
     <script src="app.js"></script>
     <title>Yin Yang App</title>
 </head>
-<body onload="showFriends()">
+<body>
   <div class="col-12 headerbuttons">
     <div id="menu" class="col-1 menu" onclick="menuToggle(this), menuList()">
       <div class="menu1"></div>
@@ -45,5 +45,19 @@
     </div>
   </div>
 </div>
+<script>
+  var menu = document.getElementById("menu");
+menu.addEventListener("click", menuList());
+  function menuToggle(x) {
+  x.classList.toggle("change");
+  }
+  function menuList() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+ }</script>
 </body>
 </html>
