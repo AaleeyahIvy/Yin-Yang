@@ -66,7 +66,7 @@ mysqli_close($conn);
 </div>
 <script>
     var menu = document.getElementById("menu");
-menu.addEventListener("click", menuList());
+    menu.addEventListener("click", menuList());
     function menuToggle(x) {
     x.classList.toggle("change");
     }
