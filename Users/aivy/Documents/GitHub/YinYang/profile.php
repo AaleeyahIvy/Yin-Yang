@@ -1,6 +1,7 @@
 <?php
  session_start();
  $id = $_SESSION['id'];
+ $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +43,7 @@ mysqli_close($conn);
   <div class="col-12 content">
     <div class="profile">
     <p>PROFILE IMAGE</p>
-    <p>NAME</p>
+    <p><?php echo $_SESSION['username'];?></p>
     <p>FRIENDS</p>
     <div id="friends-list">
       <input type="text" id="addFriend" placeholder="Enter friend name...">
@@ -97,5 +98,6 @@ mysqli_close($conn);
   }
   } 
   </script>
+  <div><a href="logout.php">Logout</a></div>
 </body>
 </html>
