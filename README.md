@@ -29,4 +29,9 @@ yinyangapp.com/"page-you-wanna-test"
 
 If you have any feedback, please reach out to us at aaleeyah@yinyangapp.com or austin@yinyangapp.com
 
+## IN-PROGRESS
+- Finish all app pages - profiles, friends, groups, etc...
+
+- A/B testing, user testing, enhance user interface.
+
 
