@@ -1,5 +1,6 @@
 <?php
  session_start();
+ $id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,11 +18,12 @@
 <body>
 <?php
 require('./config/db.php');
+
 // where userID = 1 where friendID = 1 DEFAULT
-$sql = "SELECT f.*, u.username FROM users u INNER JOIN ( SELECT userID, friendID FROM friends WHERE userID UNION SELECT friendID, userID FROM friends WHERE friendID ) f ON f.friendID = u.id";
+$sql = "SELECT f.*, u.username FROM users u INNER JOIN ( SELECT userID, friendID FROM friends WHERE userID = $id UNION SELECT friendID, userID FROM friends WHERE friendID = $id ) f ON f.friendID = u.id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-$_SESSION['id']= $row['id'];
+
 mysqli_close($conn);
 ?>
   <div class="col-12 headerbuttons">
@@ -55,6 +57,7 @@ mysqli_close($conn);
                 <!-- FETCHING DATA FROM EACH
                     ROW OF EVERY COLUMN -->
                 <div class="friends" id="friend"><?php echo $rows['username'];?></div>
+                <div> <?php echo $_SESSION['id']= $row['id'];?></div>
             <?php
                 }
             ?>
