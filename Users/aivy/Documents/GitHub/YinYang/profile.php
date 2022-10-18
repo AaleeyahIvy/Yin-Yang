@@ -42,10 +42,10 @@ mysqli_close($conn);
 <div class="col-12 app-container">
   <div class="col-12 content">
     <div class="profile">
-    <p>PROFILE IMAGE</p>
-    <p><?php echo $_SESSION['username'];?></p>
-    <p>FRIENDS</p>
-    <div id="friends-list">
+    <div>Profile</div>
+    <div><?php echo $_SESSION['username'];?></div>
+    <div class="accordion">FRIENDS
+    <div class="panel" id="friends-list">
       <input type="text" id="addFriend" placeholder="Enter friend name...">
       <button onclick="addFriend()" class="addBtn">Add</button>
       <?php
@@ -60,11 +60,15 @@ mysqli_close($conn);
                 }
             ?>
       </div>
-    <p>PUBLIC GROUPS</p>
-    <p>PRIVATE GROUPS</p>
+              </div>
+    <div class="accordion">PUBLIC GROUPS
+      <div class="panel">Place information here!</div>
+    </div>
+    <div class="accordion">PRIVATE GROUPS
+      <div class="panel">Place information here!</div>
+    </div>
 </div>
   </div>
-</div>
 <script>
     var menu = document.getElementById("menu");
     menu.addEventListener("click", menuList());
@@ -98,6 +102,7 @@ mysqli_close($conn);
   }
   } 
   </script>
+    </div>
   <div><a href="logout.php">Logout</a></div>
 </body>
 </html>

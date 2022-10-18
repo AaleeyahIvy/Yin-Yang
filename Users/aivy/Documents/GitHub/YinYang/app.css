@@ -180,3 +180,9 @@
     border: 2px solid black;
     background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
    }
+   .accordion{
+    background-color: white;
+   }
+   .accordion:hover{
+    background-color: rgb(232, 233, 233);
+   }
