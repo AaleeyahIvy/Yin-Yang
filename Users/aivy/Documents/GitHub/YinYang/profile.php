@@ -17,10 +17,11 @@
 <body>
 <?php
 require('./config/db.php');
-
-
-$sql = "SELECT f.*, u.username FROM users u INNER JOIN ( SELECT userID, friendID FROM friends WHERE userID = 1 UNION SELECT friendID, userID FROM friends WHERE friendID = 1 ) f ON f.friendID = u.id";
+// where userID = 1 where friendID = 1 DEFAULT
+$sql = "SELECT f.*, u.username FROM users u INNER JOIN ( SELECT userID, friendID FROM friends WHERE userID UNION SELECT friendID, userID FROM friends WHERE friendID ) f ON f.friendID = u.id";
 $result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$_SESSION['id']= $row['id'];
 mysqli_close($conn);
 ?>
   <div class="col-12 headerbuttons">
