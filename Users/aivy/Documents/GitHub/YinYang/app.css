@@ -49,7 +49,7 @@
       font-family: 'Thasadith', sans-serif;
       font-size: large;
       font-weight: 800;
-      background-color: rgb(106, 218, 218);
+      background-color: rgb(125, 134, 134);
     
   }
   .app-container{
@@ -175,7 +175,8 @@
    SPAN {
     padding: 5px;
    }
-   #friends-list {
-    background-image: linear-gradient(#63ffff, #545c9e);
-  
+   #friends-list{
+    padding: 10px;
+    border: 2px solid black;
+    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
    }
