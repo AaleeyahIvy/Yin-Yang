@@ -49,7 +49,7 @@
       font-family: 'Thasadith', sans-serif;
       font-size: large;
       font-weight: 800;
-      background-color: rgb(232, 233, 233);
+      background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
     
   }
   .app-container{
@@ -176,13 +176,24 @@
     padding: 5px;
    }
    #friends-list{
+    margin: 10px;
     padding: 10px;
-    border: 2px solid black;
-    background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    border: 3px solid white;
+    border-radius: 15px;
    }
    .accordion{
-    background-color: white;
+    margin: 10px;
+    background-color: rgba(232, 233, 233, 0);
    }
-   .accordion:hover{
-    background-color: rgb(232, 233, 233);
+   .panel{
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 15px;
    }
+   .friends:hover{
+    text-decoration: underline;
+   }
+   a{
+    text-decoration: none;
+   }
+  
