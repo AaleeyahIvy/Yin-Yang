@@ -41,7 +41,7 @@ session_start();
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Enter Email" required>
         <label for="phonenumber">Phone:</label>
-        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Enter Phone Number" required><br>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter Phone Number" required><br>
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Create Username" required>
         <label for="password">Password:</label>
