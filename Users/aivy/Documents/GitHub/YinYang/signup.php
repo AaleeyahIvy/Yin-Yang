@@ -48,7 +48,7 @@ session_start();
         <input type="password" id="password" name="password" placeholder="Create Password" required><br>
         <br>
         <label for="submit">Get Started!!!!</label>
-        <input class="submit" name="submit" type="submit" value="sign-up">
+        <input class="submit" name="submit" type="submit" value="Sign-up">
       </form>
     </div>
     <script>

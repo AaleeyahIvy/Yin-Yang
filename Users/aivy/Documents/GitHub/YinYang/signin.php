@@ -69,7 +69,6 @@ if (isset($_GET["msg"]) && $_GET["msg"] == 'failed') {
           <input type="text" id="username" name="username" placeholder="Enter Username" required>
           <label for="password">Password:</label>
           <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
-          <span class="error">*<?php echo $loginError; ?></span>
           <br>
           <input class="submit" name="submit" type="submit" value="Sign In">
         </form>
