@@ -49,7 +49,7 @@
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
+      const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events';
 
       let tokenClient;
       let gapiInited = false;
@@ -57,7 +57,17 @@
 
       document.getElementById('authorize_button').style.visibility = 'hidden';
       document.getElementById('signout_button').style.visibility = 'hidden';
+      /**
+       * Insert & Add Event
+       */
+       var request = gapi.client.calendar.events.insert({
+        'calendarId': 'primary',
+        'resource': event
+       });
 
+       request.execute(function(event){
+        appendPre('Event created: ' + event.htmlLink);
+       })
       /**
        * Callback after api.js is loaded.
        */
