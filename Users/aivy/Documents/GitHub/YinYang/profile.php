@@ -33,7 +33,7 @@ mysqli_close($conn);
     <div id="myLinks">
     <a href="app.html">App</a><br>
     <a href="profile.php">Profile</a><br>
-    <a href="calendar.php">Calendar</a><br>
+    <a href="calendar.html">Calendar</a><br>
     <a href="settings.html">Settings</a>
     </div>
   </div>
