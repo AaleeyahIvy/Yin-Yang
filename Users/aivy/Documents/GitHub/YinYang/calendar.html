@@ -26,8 +26,18 @@
   </div>
 <div class="col-12 app-container">
   <div class = "calendar">
-    <form>CREATE FORM FOR CREATE EVENT: POST https://www.googleapis.com/calendar/v3/calendars/calendarId/events
- USE THAT HREF LINK ETC AFTER LUNCH    </form>
+    <form action="https://www.googleapis.com/calendar/v3/calendars/calendarId/events" method="post">
+      <label for="summary">Event Name:</label>
+      <input>
+      <label for="location">Location:</label>
+      <input>
+      <label for="description">Description:</label>
+      <input>
+      <label for="start">Start Time:</label>
+      <input>
+      <label for="end">End Time:</label>
+      <input>
+      </form>
   </div>
 </div>
     <!--Add buttons to initiate auth sequence and sign out-->
