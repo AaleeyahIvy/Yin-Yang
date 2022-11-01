@@ -15,6 +15,7 @@ Although based on our beliefs, we decided we could turn this into a nice groupch
 - Animations, menus, email system.
 - User/Friend relationships
 - App customization
+- Email system
 
 
 
