@@ -126,6 +126,7 @@
     background-color: rgba(51, 51, 51, 0.219);
     border-radius: 25px;
     flex-direction: column;
+    align-items: center;
   }
   .main{
     background-color: rgba(51, 51, 51, 0.219);
@@ -196,4 +197,9 @@
    a{
     text-decoration: none;
    }
-  
+  .badge{
+    width: 50%;
+    background-color: white;
+    border-radius: 15px;
+    
+  }
