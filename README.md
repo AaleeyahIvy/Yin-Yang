@@ -1,4 +1,4 @@
-# Yin Yang App ☯️
+# Yin Yang App ☯️ Made with LAMP/Docker
 
 Originally this was going to be an app that lets couples stay connected while in long distance relationships or out of town.
 Me and my partner were using the Tuned app made by Meta, but it is going to be shut down september 13th.
