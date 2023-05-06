@@ -27,7 +27,7 @@ COPY www.conf /etc/php/php-fpm.d/www.conf
 COPY php.ini /etc/php/php.ini
 
 # Website Files
-COPY html /usr/share/nginx/html
+COPY www /usr/share/nginx/html
 
 # Caddy Configs
 COPY Caddyfile /etc/caddy/Caddyfile
