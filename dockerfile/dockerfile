@@ -1,0 +1,53 @@
+# Use Arch Linux as the base image
+FROM archlinux:latest
+
+# Update the system and install packages
+RUN pacman -Syu --noconfirm && pacman -S --noconfirm nginx nodejs npm mariadb php php-fpm php-gd php-intl php-pgsql php-sqlite git curl unzip caddy
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+# Remove default nginx index.html
+# RUN rm /usr/share/nginx/html/index.html
+
+# NGINX Configs
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY mime.types /etc/nginx/mime.types
+COPY fastcgi.conf /etc/nginx/fastcgi.conf
+COPY fastcgi_params /etc/nginx/fastcgi_params
+COPY koi-utf /etc/nginx/koi-utf
+COPY koi-win /etc/nginx/koi-win
+COPY scgi_params /etc/nginx/scgi_params
+COPY uwsgi_params /etc/nginx/uwsgi_params
+COPY win-utf /etc/nginx/win-utf
+
+# PHP Configs
+COPY php-fpm.conf /etc/php/php-fpm.conf
+COPY www.conf /etc/php/php-fpm.d/www.conf
+COPY php.ini /etc/php/php.ini
+
+# Website Files
+COPY html /usr/share/nginx/html
+
+# Caddy Configs
+COPY Caddyfile /etc/caddy/Caddyfile
+
+# Add user for www.conf
+# Make sure that you have specified a valid user and group to run PHP-FPM as, and that the user and group exist on the container.
+# RUN groupadd -g 1000 www-data && \
+#    useradd -u 1000 -g www-data -d /var/www -s /bin/bash www-data
+
+# create a docker-entrypoint.d directory
+RUN mkdir /docker-entrypoint.d
+
+COPY docker-entrypoint.sh /
+COPY 10-listen-on-ipv6-by-default.sh /docker-entrypoint.d
+COPY 20-envsubst-on-templates.sh /docker-entrypoint.d
+COPY 30-tune-worker-processes.sh /docker-entrypoint.d
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 80
+
+STOPSIGNAL SIGQUIT
+
+CMD ["nginx", "-g", "daemon off;"]
